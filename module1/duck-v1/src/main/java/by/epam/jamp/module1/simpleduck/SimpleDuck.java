@@ -1,33 +1,20 @@
 package by.epam.jamp.module1.simpleduck;
 
-import by.epam.jamp.module1.baseduck.BaseDuck;
+import by.epam.jamp.module1.baseduck.behaviours.fly.impl.FlyBehaviourBirdsStyle;
+import by.epam.jamp.module1.baseduck.behaviours.quack.impl.QuackBehaviourDefault;
+import by.epam.jamp.module1.baseduck.behaviours.recharge.impl.RechargeBehaviourEat;
+import by.epam.jamp.module1.baseduck.behaviours.swim.impl.SwimBehaviourDuck;
+import by.epam.jamp.module1.baseduck.behaviours.walk.impl.WalkBehaviourCharged;
+import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 
-public class SimpleDuck extends BaseDuck {
+public class SimpleDuck extends StatefullDuck {
 
-	public SimpleDuck(int powerReserve) {
-		super(powerReserve);
-		setDuckBehaviour(new SimpleDuckBehaviourNormal(this));
-		setChargeLevel(powerReserve);
-	}
-
-	public void walk() {
-		getDuckBehaviour().walk();
-	}
-
-	public void swim() {
-		getDuckBehaviour().swim();
-	}
-
-	public void fly() {
-		getDuckBehaviour().fly();
-	}
-
-	public void quack() {
-		getDuckBehaviour().quack();
-	}
-
-	public void renew() {
-		getDuckBehaviour().renew();
+	public SimpleDuck() {
+		setFlyBehaviour(new FlyBehaviourBirdsStyle());
+		setQuackBehaviour(new QuackBehaviourDefault());
+		setRechargeBehaviour(new RechargeBehaviourEat());
+		setSwimBehaviour(new SwimBehaviourDuck());
+		setWalkBehaviour(new WalkBehaviourCharged());
 	}
 
 }
