@@ -10,7 +10,7 @@ class EnvironmentStateGround extends EnvironmentState {
 
 	void stateEnter(EnvironmentStateType owner) {
 		System.out.println("*** поведение изменено на наземное ***");
-		owner.getDuck().setRechargeBehaviour(new RechargeBehaviourEat());
+		owner.getDuck().getCurrentBehaviours().setRechargeBehaviour(new RechargeBehaviourEat());
 	}
 
 }

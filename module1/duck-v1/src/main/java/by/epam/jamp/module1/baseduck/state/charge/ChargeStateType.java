@@ -9,7 +9,7 @@ public class ChargeStateType {
 
 	public ChargeStateType(Duck duck) {
 		this.duck = duck;
-		this.state = ChargeState.full;
+		this.state = ChargeState.FULL;
 	}
 
 	public void setState(ChargeState newState) {

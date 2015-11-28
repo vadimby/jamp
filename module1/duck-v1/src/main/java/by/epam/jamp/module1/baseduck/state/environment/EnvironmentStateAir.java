@@ -9,7 +9,7 @@ class EnvironmentStateAir extends EnvironmentState {
 
 	void stateEnter(EnvironmentStateType owner) {
 		System.out.println("*** поведение изменено на воздушное ***");
-		owner.getDuck().setRechargeBehaviour(new RechargeBehaviourEatInAir());
+		owner.getDuck().getCurrentBehaviours().setRechargeBehaviour(new RechargeBehaviourEatInAir());
 	}
 
 }

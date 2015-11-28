@@ -7,12 +7,13 @@ abstract class EnvironmentState {
 	static final EnvironmentState AIR = new EnvironmentStateAir();
 
 	protected EnvironmentState() {
-		if (initialState == null)
+		if (initialState == null) {
 			initialState = this;
+		}
 	}
 
 	abstract void stateExit(EnvironmentStateType owner);
 
 	abstract void stateEnter(EnvironmentStateType owner);
-	
+
 }

@@ -9,7 +9,7 @@ class EnvironmentStateWater extends EnvironmentState {
 
 	void stateEnter(EnvironmentStateType owner) {
 		System.out.println("*** поведение изменено на наводное  ***");
-		owner.getDuck().setRechargeBehaviour(new RechargeBehaviourDrink());
+		owner.getDuck().getCurrentBehaviours().setRechargeBehaviour(new RechargeBehaviourDrink());
 	}
 
 }
