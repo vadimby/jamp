@@ -1,14 +1,22 @@
 package by.epam.jamp.module1.baseduck.state.environment;
 
 import by.epam.jamp.module1.baseduck.Duck;
+import by.epam.jamp.module1.baseduck.DuckBehaviours;
 
 public class EnvironmentStateType {
 
 	private EnvironmentState state;
+	private final DuckBehaviours groundBehaviours;
+	private final DuckBehaviours waterBehaviours;
+	private final DuckBehaviours airBehaviours;
 	private final Duck duck;
 
-	public EnvironmentStateType(Duck duck) {
+	public EnvironmentStateType(Duck duck, DuckBehaviours groundBehaviours, DuckBehaviours waterBehaviours,
+			DuckBehaviours airBehaviours) {
 		this.duck = duck;
+		this.groundBehaviours = groundBehaviours;
+		this.waterBehaviours = waterBehaviours;
+		this.airBehaviours = airBehaviours;
 		this.state = EnvironmentState.GROUND;
 	}
 
@@ -18,10 +26,6 @@ public class EnvironmentStateType {
 			this.state = newState;
 			this.state.stateEnter(this);
 		}
-	}
-
-	public Duck getDuck() {
-		return duck;
 	}
 
 	public void toAir() {
@@ -35,4 +39,26 @@ public class EnvironmentStateType {
 	public void toEarth() {
 		setState(EnvironmentState.GROUND);
 	}
+
+	public EnvironmentState getState() {
+		return state;
+	}
+
+	public DuckBehaviours getGroundBehaviours() {
+		return groundBehaviours;
+	}
+
+	public DuckBehaviours getWaterBehaviours() {
+		return waterBehaviours;
+	}
+
+	public DuckBehaviours getAirBehaviours() {
+		return airBehaviours;
+	}
+
+	public Duck getDuck() {
+		return duck;
+	}
+
+	//
 }

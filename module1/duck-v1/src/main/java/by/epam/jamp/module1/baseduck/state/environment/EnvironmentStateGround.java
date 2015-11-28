@@ -1,7 +1,5 @@
 package by.epam.jamp.module1.baseduck.state.environment;
 
-import by.epam.jamp.module1.baseduck.behaviours.recharge.impl.RechargeBehaviourEat;
-
 class EnvironmentStateGround extends EnvironmentState {
 	
 	void stateExit(EnvironmentStateType owner) {
@@ -10,7 +8,7 @@ class EnvironmentStateGround extends EnvironmentState {
 
 	void stateEnter(EnvironmentStateType owner) {
 		System.out.println("*** поведение изменено на наземное ***");
-		owner.getDuck().getCurrentBehaviours().setRechargeBehaviour(new RechargeBehaviourEat());
+		owner.getDuck().setCurrentBehaviours(owner.getGroundBehaviours());
 	}
 
 }
