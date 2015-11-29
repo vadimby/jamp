@@ -1,16 +1,12 @@
 package by.epam.jamp.module1.baseduck.state.charge;
 
-abstract class ChargeState {
-	static ChargeState initialState;
-	static final ChargeState full = new ChargeStateFull();
-	static final ChargeState empty = new ChargeStateEmpty();
+import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 
-	protected ChargeState() {
-		if (initialState == null)
-			initialState = this;
-	}
+public abstract class ChargeState {
 
-	abstract void stateExit(ChargeStateType owner);
+	public static final ChargeState FULL = new ChargeStateFull();
+	public static final ChargeState EMPTY = new ChargeStateEmpty();
 
-	abstract void stateEnter(ChargeStateType owner);
+	public abstract void stateEnter(StatefullDuck duck);
+
 }

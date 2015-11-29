@@ -1,15 +1,12 @@
 package by.epam.jamp.module1.baseduck.state.environment;
 
-import by.epam.jamp.module1.baseduck.behaviours.recharge.impl.RechargeBehaviourDrink;
+import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 
 class EnvironmentStateWater extends EnvironmentState {
 
-	void stateExit(EnvironmentStateType owner) {
-	}
-
-	void stateEnter(EnvironmentStateType owner) {
+	public void stateEnter(StatefullDuck duck) {
 		System.out.println("*** поведение изменено на наводное  ***");
-		owner.getDuck().setRechargeBehaviour(new RechargeBehaviourDrink());
+		duck.setCurrentBehaviours(duck.getStateBehaviours().getStatesBehaviours().get(duck.getCurrentState()));
 	}
 
 }
