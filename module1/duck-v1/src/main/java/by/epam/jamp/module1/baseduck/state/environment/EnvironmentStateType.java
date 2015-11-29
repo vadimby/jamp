@@ -1,30 +1,19 @@
 package by.epam.jamp.module1.baseduck.state.environment;
 
-import by.epam.jamp.module1.baseduck.Duck;
-import by.epam.jamp.module1.baseduck.DuckBehaviours;
+import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 
 public class EnvironmentStateType {
 
-	private EnvironmentState state;
-	private final DuckBehaviours groundBehaviours;
-	private final DuckBehaviours waterBehaviours;
-	private final DuckBehaviours airBehaviours;
-	private final Duck duck;
+	private final StatefullDuck duck;
 
-	public EnvironmentStateType(Duck duck, DuckBehaviours groundBehaviours, DuckBehaviours waterBehaviours,
-			DuckBehaviours airBehaviours) {
+	public EnvironmentStateType(StatefullDuck duck) {
 		this.duck = duck;
-		this.groundBehaviours = groundBehaviours;
-		this.waterBehaviours = waterBehaviours;
-		this.airBehaviours = airBehaviours;
-		this.state = EnvironmentState.GROUND;
 	}
 
-	private void setState(EnvironmentState newState) {
-		if (!this.state.equals(newState)) {
-			this.state.stateExit(this);
-			this.state = newState;
-			this.state.stateEnter(this);
+	public void setState(EnvironmentState newState) {
+		if (!duck.getCurrentState().getEnvironmentState().equals(newState)) {
+			duck.getCurrentState().setEnvironmentState(newState);
+			duck.getCurrentState().getEnvironmentState().stateEnter(duck);
 		}
 	}
 
@@ -32,33 +21,11 @@ public class EnvironmentStateType {
 		setState(EnvironmentState.AIR);
 	}
 
-	public void toWater() {
-		setState(EnvironmentState.WATER);
-	}
-
-	public void toEarth() {
+	public void toGround() {
 		setState(EnvironmentState.GROUND);
 	}
 
-	public EnvironmentState getState() {
-		return state;
+	public void toWater() {
+		setState(EnvironmentState.WATER);
 	}
-
-	public DuckBehaviours getGroundBehaviours() {
-		return groundBehaviours;
-	}
-
-	public DuckBehaviours getWaterBehaviours() {
-		return waterBehaviours;
-	}
-
-	public DuckBehaviours getAirBehaviours() {
-		return airBehaviours;
-	}
-
-	public Duck getDuck() {
-		return duck;
-	}
-
-	//
 }

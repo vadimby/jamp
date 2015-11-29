@@ -6,23 +6,18 @@ import by.epam.jamp.module1.baseduck.state.environment.EnvironmentStateType;
 
 public abstract class StatefullDuck extends Duck {
 
-	private final ChargeStateType chargeStateType;
-	private final EnvironmentStateType environmentStateType;
+	private StatefullDuckBehaviours stateBehaviors;
+	private DuckStates currentState;
+	private ChargeStateType chargeStateType;
+	private EnvironmentStateType environmentStateType;
 
-	public StatefullDuck(StatefullDuckBehaviors duckBehaviors) {
-		super(duckBehaviors.getCurentBehaviours());
-		this.chargeStateType = new ChargeStateType(this, duckBehaviors.getFullBehaviours(),
-				duckBehaviors.getEmptyBehaviours());
-		this.environmentStateType = new EnvironmentStateType(this, duckBehaviors.getGroundBehaviours(),
-				duckBehaviors.getWaterBehaviours(), duckBehaviors.getAirBehaviours());
-	}
+	public StatefullDuck(StatefullDuckBehaviours stateBehaviors) {
+		super(stateBehaviors.getStatesBehaviours().get(stateBehaviors.getOptions().getInitialStates()));
+		currentState = stateBehaviors.getOptions().getInitialStates();
+		this.stateBehaviors = stateBehaviors;
 
-	public ChargeStateType getChargeStateType() {
-		return chargeStateType;
-	}
-
-	public EnvironmentStateType getEnvironmentStateType() {
-		return environmentStateType;
+		chargeStateType = new ChargeStateType(this);
+		environmentStateType = new EnvironmentStateType(this);
 	}
 
 	@Override
@@ -33,7 +28,8 @@ public abstract class StatefullDuck extends Duck {
 
 	@Override
 	public void walk() {
-		environmentStateType.toEarth();
+//		currentState.toGround();
+		chargeStateType.decreaseChargeLevel();
 		super.walk();
 	}
 
@@ -41,6 +37,25 @@ public abstract class StatefullDuck extends Duck {
 	public void swim() {
 		environmentStateType.toWater();
 		super.swim();
+	}
+
+	@Override
+	public void quack() {
+		super.quack();
+	}
+
+	@Override
+	public void recharge() {
+		super.recharge();
+		chargeStateType.recharge();
+	}
+
+	public DuckStates getCurrentState() {
+		return currentState;
+	}
+
+	public StatefullDuckBehaviours getStateBehaviours() {
+		return stateBehaviors;
 	}
 
 }

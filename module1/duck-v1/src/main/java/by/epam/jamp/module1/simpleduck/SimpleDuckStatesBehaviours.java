@@ -1,14 +1,16 @@
 package by.epam.jamp.module1.simpleduck;
 
+import java.util.Map;
+
 import by.epam.jamp.module1.baseduck.DuckBehaviours;
-import by.epam.jamp.module1.baseduck.state.StatefullDuckBehaviors;
+import by.epam.jamp.module1.baseduck.state.DuckStates;
+import by.epam.jamp.module1.baseduck.state.StateOptions;
+import by.epam.jamp.module1.baseduck.state.StatefullDuckBehaviours;
 
-public class SimpleDuckStatesBehaviours extends StatefullDuckBehaviors {
+public class SimpleDuckStatesBehaviours extends StatefullDuckBehaviours {
 
-	public SimpleDuckStatesBehaviours(DuckBehaviours curentBehaviours, DuckBehaviours fullBehaviours,
-			DuckBehaviours emptyBehaviours, DuckBehaviours groundBehaviours, DuckBehaviours waterBehaviours,
-			DuckBehaviours airBehaviors) {
-		super(curentBehaviours, fullBehaviours, emptyBehaviours, groundBehaviours, waterBehaviours, airBehaviors);
+	public SimpleDuckStatesBehaviours(Map<DuckStates, DuckBehaviours> statesBehaviours, StateOptions options) {
+		super(statesBehaviours, options);
 	}
 
 }
