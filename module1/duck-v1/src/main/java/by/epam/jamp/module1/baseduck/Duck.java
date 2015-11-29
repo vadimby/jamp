@@ -9,25 +9,29 @@ public abstract class Duck {
 	}
 
 	public void walk() {
-		getCurrentBehaviours().getWalkBehaviour().walk();
+		currentBehaviours.getWalkBehaviour().walk();
 	}
 
 	public void swim() {
-		getCurrentBehaviours().getSwimBehaviour().swim();
+		currentBehaviours.getSwimBehaviour().swim();
 	}
 
 	public void fly() {
-		getCurrentBehaviours().getFlyBehaviour().fly();
+		currentBehaviours.getFlyBehaviour().fly();
+	}
+	
+	public void move() {
+		currentBehaviours.getMoveBehaviour().move();
 	}
 
 	public void quack() {
-		getCurrentBehaviours().getQuackBehaviour().quack();
+		currentBehaviours.getQuackBehaviour().quack();
 	}
 
 	public void recharge() {
-		getCurrentBehaviours().getRechargeBehaviour().recharge();
+		currentBehaviours.getRechargeBehaviour().recharge();
 	}
-
+	
 	public DuckBehaviours getCurrentBehaviours() {
 		return currentBehaviours;
 	}
@@ -35,6 +39,5 @@ public abstract class Duck {
 	public void setCurrentBehaviours(DuckBehaviours currentBehaviours) {
 		this.currentBehaviours = currentBehaviours;
 	}
-
 	
 }

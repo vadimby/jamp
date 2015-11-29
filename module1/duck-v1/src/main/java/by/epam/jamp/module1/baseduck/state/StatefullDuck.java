@@ -3,6 +3,7 @@ package by.epam.jamp.module1.baseduck.state;
 import by.epam.jamp.module1.baseduck.Duck;
 import by.epam.jamp.module1.baseduck.state.charge.ChargeStateType;
 import by.epam.jamp.module1.baseduck.state.environment.EnvironmentStateType;
+import by.epam.jamp.module1.baseduck.state.position.PositionStateType;
 
 public abstract class StatefullDuck extends Duck {
 
@@ -10,6 +11,7 @@ public abstract class StatefullDuck extends Duck {
 	private DuckStates currentState;
 	private ChargeStateType chargeStateType;
 	private EnvironmentStateType environmentStateType;
+	private PositionStateType positionStateType;
 
 	public StatefullDuck(StatefullDuckBehaviours stateBehaviors) {
 		super(stateBehaviors.getStatesBehaviours().get(stateBehaviors.getOptions().getInitialStates()));
@@ -18,30 +20,22 @@ public abstract class StatefullDuck extends Duck {
 
 		chargeStateType = new ChargeStateType(this);
 		environmentStateType = new EnvironmentStateType(this);
+		positionStateType = new PositionStateType(this);
 	}
 
 	@Override
 	public void fly() {
 		environmentStateType.toAir();
-		super.fly();
 	}
 
 	@Override
 	public void walk() {
-//		currentState.toGround();
-		chargeStateType.decreaseChargeLevel();
-		super.walk();
+		environmentStateType.toGround();
 	}
 
 	@Override
 	public void swim() {
 		environmentStateType.toWater();
-		super.swim();
-	}
-
-	@Override
-	public void quack() {
-		super.quack();
 	}
 
 	@Override
@@ -56,6 +50,30 @@ public abstract class StatefullDuck extends Duck {
 
 	public StatefullDuckBehaviours getStateBehaviours() {
 		return stateBehaviors;
+	}
+
+	public void moveWest() {
+		chargeStateType.decreaseChargeLevel();
+		positionStateType.moveWest();
+		super.move();
+	}
+
+	public void moveEast() {
+		chargeStateType.decreaseChargeLevel();
+		positionStateType.moveEast();
+		super.move();
+	}
+
+	public void moveNorth() {
+		chargeStateType.decreaseChargeLevel();
+		positionStateType.moveNorth();
+		super.move();
+	}
+
+	public void moveSouth() {
+		chargeStateType.decreaseChargeLevel();
+		positionStateType.moveSouth();
+		super.move();
 	}
 
 }

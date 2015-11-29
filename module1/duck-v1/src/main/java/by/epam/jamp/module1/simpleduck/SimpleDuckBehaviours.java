@@ -2,6 +2,7 @@ package by.epam.jamp.module1.simpleduck;
 
 import by.epam.jamp.module1.baseduck.DuckBehaviours;
 import by.epam.jamp.module1.baseduck.behaviours.fly.FlyBehaviour;
+import by.epam.jamp.module1.baseduck.behaviours.move.MoveBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.quack.QuackBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
@@ -14,6 +15,7 @@ public class SimpleDuckBehaviours implements DuckBehaviours {
 	private SwimBehaviour swimBehaviour;
 	private WalkBehaviour walkBehaviour;
 	private RechargeBehaviour rechargeBehaviour;
+	private MoveBehaviour moveBehaviour;
 
 	public FlyBehaviour getFlyBehaviour() {
 		return flyBehaviour;
@@ -55,4 +57,13 @@ public class SimpleDuckBehaviours implements DuckBehaviours {
 		this.rechargeBehaviour = rechargeBehaviour;
 	}
 
+	public MoveBehaviour getMoveBehaviour() {
+		return moveBehaviour;
+	}
+
+	public void setMoveBehaviour(MoveBehaviour moveBehaviour) {
+		this.moveBehaviour = moveBehaviour;
+	}
+
+	
 }

@@ -8,12 +8,10 @@ public class DuckStates {
 	private ChargeState chargeState;
 	private EnvironmentState environmentState;
 
-
 	public DuckStates(ChargeState chargeState, EnvironmentState environmentState) {
 		this.chargeState = chargeState;
 		this.environmentState = environmentState;
 	}
-
 
 	@Override
 	public int hashCode() {

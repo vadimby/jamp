@@ -1,6 +1,7 @@
 package by.epam.jamp.module1.baseduck;
 
 import by.epam.jamp.module1.baseduck.behaviours.fly.FlyBehaviour;
+import by.epam.jamp.module1.baseduck.behaviours.move.MoveBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.quack.QuackBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
@@ -17,6 +18,8 @@ public interface DuckBehaviours {
 	WalkBehaviour getWalkBehaviour();
 
 	RechargeBehaviour getRechargeBehaviour();
+	
+	MoveBehaviour getMoveBehaviour();
 
 	void setFlyBehaviour(FlyBehaviour flyBehaviour);
 
@@ -27,5 +30,7 @@ public interface DuckBehaviours {
 	void setWalkBehaviour(WalkBehaviour walkBehaviour);
 
 	void setRechargeBehaviour(RechargeBehaviour rechargeBehaviour);
+	
+	void setMoveBehaviour(MoveBehaviour moveBehaviour);
 
 }
