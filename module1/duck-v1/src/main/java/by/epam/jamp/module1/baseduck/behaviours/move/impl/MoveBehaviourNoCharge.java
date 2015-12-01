@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.move.MoveBehaviour;
 public class MoveBehaviourNoCharge implements MoveBehaviour{
 
 	public void move() {
-		System.out.println("*** хочет есть! ***");
+		System.out.println("*** С…РѕС‡РµС‚ РµСЃС‚СЊ! ***");
 	}
 
 }

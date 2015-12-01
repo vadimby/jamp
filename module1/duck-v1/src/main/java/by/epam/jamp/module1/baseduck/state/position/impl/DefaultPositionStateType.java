@@ -4,6 +4,7 @@ import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 import by.epam.jamp.module1.baseduck.state.position.PositionStateType;
 import by.epam.jamp.module1.context.Position2D;
 
+// переключатель положения утки в координатах
 public class DefaultPositionStateType implements PositionStateType {
 
 	private Position2D currentPosition;

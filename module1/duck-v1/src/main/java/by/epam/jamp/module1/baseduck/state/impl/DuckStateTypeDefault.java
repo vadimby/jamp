@@ -6,12 +6,15 @@ import by.epam.jamp.module1.baseduck.state.charge.ChargeStateType;
 import by.epam.jamp.module1.baseduck.state.environment.EnvironmentStateType;
 import by.epam.jamp.module1.baseduck.state.position.PositionStateType;
 
-// ��������� ���������� ������� �������� ���������� ���������
+// дефолтная реализация адаптер объектов изменяющий состояние
 public class DuckStateTypeDefault implements DuckStateType {
 
-	// ��������� ���������
-	private final ChargeStateType chargeStateType;
+	// возможные состояния:	
+	// переключает состояния голодная(заряжена)/сытая(не заряжена)
+	private final ChargeStateType chargeStateType; 
+	// переключает сотояние зависещее от окр среды (летит, плывет, стоит на земле)	
 	private final EnvironmentStateType environmentStateType;
+	// изменяет положения
 	private final PositionStateType positionStateType;
 
 	public DuckStateTypeDefault(ChargeStateType chargeStateType, EnvironmentStateType environmentStateType,

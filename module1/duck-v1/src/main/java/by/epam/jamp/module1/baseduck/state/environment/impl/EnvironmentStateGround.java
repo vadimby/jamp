@@ -6,7 +6,7 @@ import by.epam.jamp.module1.baseduck.state.environment.EnvironmentState;
 public class EnvironmentStateGround extends EnvironmentState {
 	
 	public void stateEnter(StatefullDuck duck) {
-		System.out.println("*** поведение изменено на наземное ***");
+		System.out.println("*** РїРѕРІРµРґРµРЅРёРµ РёР·РјРµРЅРµРЅРѕ РЅР° РЅР°Р·РµРјРЅРѕРµ ***");
 		duck.setCurrentBehaviours(duck.getStateBehaviours().getStatesBehaviours().get(duck.getCurrentState()));
 	}
 

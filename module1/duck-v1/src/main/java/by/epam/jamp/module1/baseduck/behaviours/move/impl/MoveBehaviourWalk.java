@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.move.MoveBehaviour;
 public class MoveBehaviourWalk implements MoveBehaviour{
 
 	public void move() {
-		System.out.println("*** ψΰγΰες ****");
+		System.out.println("*** ΡΠ°Π³Π°ΠµΡ‚ ****");
 	}
 
 }

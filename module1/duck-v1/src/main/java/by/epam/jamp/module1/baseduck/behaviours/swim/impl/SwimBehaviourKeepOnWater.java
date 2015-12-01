@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
 public class SwimBehaviourKeepOnWater implements SwimBehaviour {
 
 	public void swim() {
-		System.out.println("*** не тонет... ***");
+		System.out.println("*** РЅРµ С‚РѕРЅРµС‚... ***");
 		
 	}
 

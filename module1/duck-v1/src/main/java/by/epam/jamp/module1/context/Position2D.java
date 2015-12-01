@@ -26,9 +26,4 @@ public class Position2D implements Position {
 		this.y = y;
 	}
 
-	public Position getStartPosition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 public class RechargeBehaviourEatInAir implements RechargeBehaviour {
 
 	public void recharge() {
-		System.out.println("*** съела пару пролетавших мимо жучков ***");
+		System.out.println("*** СЃСЉРµР»Р° РїР°СЂСѓ РїСЂРѕР»РµС‚Р°РІС€РёС… РјРёРјРѕ Р¶СѓС‡РєРѕРІ ***");
 	}
 
 }

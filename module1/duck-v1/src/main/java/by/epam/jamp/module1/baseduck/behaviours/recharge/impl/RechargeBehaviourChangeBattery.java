@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 public class RechargeBehaviourChangeBattery implements RechargeBehaviour {
 
 	public void recharge() {
-		System.out.println("*** заменили батарейки ***");
+		System.out.println("*** Р·Р°РјРµРЅРёР»Рё Р±Р°С‚Р°СЂРµР№РєРё ***");
 	}
 
 }

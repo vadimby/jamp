@@ -2,14 +2,14 @@ package by.epam.jamp.module1.baseduck.state;
 
 import by.epam.jamp.module1.baseduck.Duck;
 
-// В зависимоти от состояния стейтфул утка может иметь разный набор поведений.
+// Р’ Р·Р°РІРёСЃРёРјРѕС‚Рё РѕС‚ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЃС‚РµР№С‚С„СѓР» СѓС‚РєР° РјРѕР¶РµС‚ РёРјРµС‚СЊ СЂР°Р·РЅС‹Р№ РЅР°Р±РѕСЂ РїРѕРІРµРґРµРЅРёР№.
 public abstract class StatefullDuck extends Duck {
 
-	// возможные виды поведений
+	// РІРѕР·РјРѕР¶РЅС‹Рµ РІРёРґС‹ РїРѕРІРµРґРµРЅРёР№
 	private final StatefullDuckBehaviours stateBehaviors;
-	// текущее состояние
+	// С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ
 	private DuckStates currentState;
-	// объект отвечающий за изменения состояний утки
+	// РѕР±СЉРµРєС‚ РѕС‚РІРµС‡Р°СЋС‰РёР№ Р·Р° РёР·РјРµРЅРµРЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёР№ СѓС‚РєРё
 	private DuckStateType duckStateType;
 
 	public StatefullDuck(StatefullDuckBehaviours stateBehaviors) {

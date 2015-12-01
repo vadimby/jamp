@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
 public class SwimBehaviourDuck implements SwimBehaviour {
 
 	public void swim() {
-		System.out.println("*** Ολϋβες ... ***");
+		System.out.println("*** ΠΠ»Ρ‹Π²ΠµΡ‚ ... ***");
 	}
 
 }

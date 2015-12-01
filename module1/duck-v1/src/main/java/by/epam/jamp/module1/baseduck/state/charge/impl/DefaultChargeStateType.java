@@ -6,6 +6,7 @@ import by.epam.jamp.module1.baseduck.state.charge.ChargeStateType;
 
 public class DefaultChargeStateType implements ChargeStateType {
 
+	private static final int MIN_CHARGE_LEVEL = 0;
 	private int maxChargeLevel;
 	private int currentChargeLevel;
 
@@ -20,7 +21,7 @@ public class DefaultChargeStateType implements ChargeStateType {
 	}
 
 	public void decreaseChargeLevel(StatefullDuck duck) {
-		if (currentChargeLevel > 0) {
+		if (currentChargeLevel > MIN_CHARGE_LEVEL) {
 			this.currentChargeLevel--;
 		} else {
 			setState(ChargeState.EMPTY, duck);

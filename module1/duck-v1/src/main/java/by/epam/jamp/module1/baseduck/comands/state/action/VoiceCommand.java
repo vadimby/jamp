@@ -9,7 +9,6 @@ public class VoiceCommand implements Command {
 
 	public VoiceCommand(Duck duck) {
 		this.duck = duck;
-		// TODO Auto-generated constructor stub
 	}
 
 	public void execute() {

@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.quack.QuackBehaviour;
 public class QuackBehaviourDefault implements QuackBehaviour {
 
 	public void quack() {
-		System.out.println("Êğÿÿÿ!");
+		System.out.println("ĞšÑ€ÑÑÑ!");
 
 	}
 

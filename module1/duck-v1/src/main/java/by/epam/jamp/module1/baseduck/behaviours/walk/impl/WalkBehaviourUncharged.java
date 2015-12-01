@@ -5,7 +5,7 @@ import by.epam.jamp.module1.baseduck.behaviours.walk.WalkBehaviour;
 public class WalkBehaviourUncharged implements WalkBehaviour {
 
 	public void walk() {
-		System.out.println("*** нет больше сил идти ***");
+		System.out.println("*** РЅРµС‚ Р±РѕР»СЊС€Рµ СЃРёР» РёРґС‚Рё ***");
 		
 	}
 

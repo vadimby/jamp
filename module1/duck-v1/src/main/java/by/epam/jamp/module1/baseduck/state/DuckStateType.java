@@ -1,6 +1,6 @@
 package by.epam.jamp.module1.baseduck.state;
 
-// адаптер объектов изменяющий состояние
+// Р°РґР°РїС‚РµСЂ РѕР±СЉРµРєС‚РѕРІ РёР·РјРµРЅСЏСЋС‰РёР№ СЃРѕСЃС‚РѕСЏРЅРёРµ
 public interface DuckStateType {
 
 	public void toAir(StatefullDuck duck);

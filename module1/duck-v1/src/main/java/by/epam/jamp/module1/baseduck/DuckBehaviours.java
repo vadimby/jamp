@@ -7,26 +7,26 @@ import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.walk.WalkBehaviour;
 
-// базовый набор поведений необходимый для корректной работы. 
-// все модули подключаются как инетерфесы и не зависят от рализаций
+// Р±Р°Р·РѕРІС‹Р№ РЅР°Р±РѕСЂ РїРѕРІРµРґРµРЅРёР№ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹. 
+// РІСЃРµ РјРѕРґСѓР»Рё РїРѕРґРєР»СЋС‡Р°СЋС‚СЃСЏ РєР°Рє РёРЅРµС‚РµСЂС„РµСЃС‹ Рё РЅРµ Р·Р°РІРёСЃСЏС‚ РѕС‚ СЂР°Р»РёР·Р°С†РёР№
 public interface DuckBehaviours {
 
-	// утка может летать
+	// СѓС‚РєР° РјРѕР¶РµС‚ Р»РµС‚Р°С‚СЊ
 	FlyBehaviour getFlyBehaviour();
 
-	// утка может квакать
+	// СѓС‚РєР° РјРѕР¶РµС‚ РєРІР°РєР°С‚СЊ
 	QuackBehaviour getQuackBehaviour();
 
-	// ... плавать
+	// ... РїР»Р°РІР°С‚СЊ
 	SwimBehaviour getSwimBehaviour();
 
-	// ... ходить
+	// ... С…РѕРґРёС‚СЊ
 	WalkBehaviour getWalkBehaviour();
 
-	// ... восполнять запас энергии = есть, пить, менять батарейки
+	// ... РІРѕСЃРїРѕР»РЅСЏС‚СЊ Р·Р°РїР°СЃ СЌРЅРµСЂРіРёРё = РµСЃС‚СЊ, РїРёС‚СЊ, РјРµРЅСЏС‚СЊ Р±Р°С‚Р°СЂРµР№РєРё
 	RechargeBehaviour getRechargeBehaviour();
 
-	// "оказалось", утка долна подчинять командам движения
+	// "РѕРєР°Р·Р°Р»РѕСЃСЊ", СѓС‚РєР° РґРѕР»РЅР° РїРѕРґС‡РёРЅСЏС‚СЊ РєРѕРјР°РЅРґР°Рј РґРІРёР¶РµРЅРёСЏ
 	MoveBehaviour getMoveBehaviour();
 
 	void setFlyBehaviour(FlyBehaviour flyBehaviour);

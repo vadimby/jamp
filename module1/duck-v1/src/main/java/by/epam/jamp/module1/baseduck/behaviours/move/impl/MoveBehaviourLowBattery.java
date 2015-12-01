@@ -14,7 +14,7 @@ public class MoveBehaviourLowBattery implements MoveBehaviour {
 	}
 
 	public void move() {
-		System.out.println("*** сели батарейки ***");
+		System.out.println("*** СЃРµР»Рё Р±Р°С‚Р°СЂРµР№РєРё ***");
 		for (int i = 0; i < quackTimes; i++) {
 			quackBehaviour.quack();
 		}

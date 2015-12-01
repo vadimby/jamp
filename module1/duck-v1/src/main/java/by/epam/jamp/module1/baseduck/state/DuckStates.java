@@ -3,6 +3,8 @@ package by.epam.jamp.module1.baseduck.state;
 import by.epam.jamp.module1.baseduck.state.charge.ChargeState;
 import by.epam.jamp.module1.baseduck.state.environment.EnvironmentState;
 
+// опрделяет текущий стейт утрки который может состоять из нескольких подтипов
+// является ключем мапы поэтому переопределены hashCode и equals
 public class DuckStates {
 
 	private ChargeState chargeState;

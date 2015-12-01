@@ -7,7 +7,7 @@ public class ChargeStateEmpty extends ChargeState {
 
 	@Override
 	public void stateEnter(StatefullDuck duck) {
-		System.out.println("*** поведение изменено на голодное ***");
+		System.out.println("*** РїРѕРІРµРґРµРЅРёРµ РёР·РјРµРЅРµРЅРѕ РЅР° РіРѕР»РѕРґРЅРѕРµ ***");
 		duck.setCurrentBehaviours(duck.getStateBehaviours().getStatesBehaviours().get(duck.getCurrentState()));
 	}
 

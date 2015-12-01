@@ -7,7 +7,7 @@ import by.epam.jamp.module1.baseduck.state.environment.impl.EnvironmentStateWate
 
 public abstract class EnvironmentState {
 	
-	// возможные состояния
+	// РІРѕР·РјРѕР¶РЅС‹Рµ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	public static final EnvironmentState GROUND = new EnvironmentStateGround();
 	public static final EnvironmentState WATER = new EnvironmentStateWater();
 	public static final EnvironmentState AIR = new EnvironmentStateAir();
