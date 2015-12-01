@@ -1,47 +1,63 @@
 package by.epam.jamp.module1.baseduck.state;
 
 import by.epam.jamp.module1.baseduck.Duck;
-import by.epam.jamp.module1.baseduck.state.charge.ChargeStateType;
-import by.epam.jamp.module1.baseduck.state.environment.EnvironmentStateType;
-import by.epam.jamp.module1.baseduck.state.position.PositionStateType;
 
+// В зависимоти от состояния стейтфул утка может иметь разный набор поведений.
 public abstract class StatefullDuck extends Duck {
 
-	private StatefullDuckBehaviours stateBehaviors;
+	// возможные виды поведений
+	private final StatefullDuckBehaviours stateBehaviors;
+	// текущее состояние
 	private DuckStates currentState;
-	private ChargeStateType chargeStateType;
-	private EnvironmentStateType environmentStateType;
-	private PositionStateType positionStateType;
+	// объект отвечающий за изменения состояний утки
+	private DuckStateType duckStateType;
 
 	public StatefullDuck(StatefullDuckBehaviours stateBehaviors) {
-		super(stateBehaviors.getStatesBehaviours().get(stateBehaviors.getOptions().getInitialStates()));
-		currentState = stateBehaviors.getOptions().getInitialStates();
+		super(stateBehaviors.getDeafultDuckBehaviours());
+		this.currentState = stateBehaviors.getOptions().getInitialStates();
+		this.duckStateType = stateBehaviors.getOptions().getStateType();
 		this.stateBehaviors = stateBehaviors;
-
-		chargeStateType = new ChargeStateType(this);
-		environmentStateType = new EnvironmentStateType(this);
-		positionStateType = new PositionStateType(this);
 	}
 
 	@Override
 	public void fly() {
-		environmentStateType.toAir();
+		duckStateType.toAir(this);
 	}
 
 	@Override
 	public void walk() {
-		environmentStateType.toGround();
+		duckStateType.toGround(this);
 	}
 
 	@Override
 	public void swim() {
-		environmentStateType.toWater();
+		duckStateType.toWater(this);
 	}
 
 	@Override
 	public void recharge() {
 		super.recharge();
-		chargeStateType.recharge();
+		duckStateType.recharge(this);
+	}
+
+	public void moveWest() {
+		duckStateType.moveWest(this);
+		super.move();
+	}
+
+	public void moveEast() {
+		duckStateType.moveEast(this);
+		super.move();
+	}
+
+	public void moveNorth() {
+		duckStateType.moveNorth(this);
+		super.move();
+	}
+
+	public void moveSouth() {
+		duckStateType.moveSouth(this);
+		super.move();
 	}
 
 	public DuckStates getCurrentState() {
@@ -50,30 +66,6 @@ public abstract class StatefullDuck extends Duck {
 
 	public StatefullDuckBehaviours getStateBehaviours() {
 		return stateBehaviors;
-	}
-
-	public void moveWest() {
-		chargeStateType.decreaseChargeLevel();
-		positionStateType.moveWest();
-		super.move();
-	}
-
-	public void moveEast() {
-		chargeStateType.decreaseChargeLevel();
-		positionStateType.moveEast();
-		super.move();
-	}
-
-	public void moveNorth() {
-		chargeStateType.decreaseChargeLevel();
-		positionStateType.moveNorth();
-		super.move();
-	}
-
-	public void moveSouth() {
-		chargeStateType.decreaseChargeLevel();
-		positionStateType.moveSouth();
-		super.move();
 	}
 
 }

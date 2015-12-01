@@ -33,20 +33,23 @@ import by.epam.jamp.module1.baseduck.comands.move.MoveSouthCommand;
 import by.epam.jamp.module1.baseduck.comands.state.LandCommand;
 import by.epam.jamp.module1.baseduck.comands.state.RechargeCommand;
 import by.epam.jamp.module1.baseduck.comands.state.TakeOffCommand;
+import by.epam.jamp.module1.baseduck.state.DuckStateType;
 import by.epam.jamp.module1.baseduck.state.DuckStates;
 import by.epam.jamp.module1.baseduck.state.StateOptions;
 import by.epam.jamp.module1.baseduck.state.StatefullDuck;
 import by.epam.jamp.module1.baseduck.state.charge.ChargeState;
-import by.epam.jamp.module1.baseduck.state.charge.ChargeStateOptions;
+import by.epam.jamp.module1.baseduck.state.charge.ChargeStateType;
+import by.epam.jamp.module1.baseduck.state.charge.impl.DefaultChargeStateType;
 import by.epam.jamp.module1.baseduck.state.environment.EnvironmentState;
-import by.epam.jamp.module1.baseduck.state.position.PositionStateOptions;
-import by.epam.jamp.module1.context.Position;
+import by.epam.jamp.module1.baseduck.state.environment.EnvironmentStateType;
+import by.epam.jamp.module1.baseduck.state.environment.impl.DefaultEnvironmentStateType;
+import by.epam.jamp.module1.baseduck.state.impl.DuckStateTypeDefault;
+import by.epam.jamp.module1.baseduck.state.position.PositionStateType;
+import by.epam.jamp.module1.baseduck.state.position.impl.DefaultPositionStateType;
 import by.epam.jamp.module1.context.Position2D;
 import by.epam.jamp.module1.simpleduck.SimpleDuck;
 import by.epam.jamp.module1.simpleduck.SimpleDuckBehaviours;
 import by.epam.jamp.module1.simpleduck.SimpleDuckStatesBehaviours;
-import by.epam.jamp.module1.toyduck.ToyDuck;
-import by.epam.jamp.module1.toyduck.ToyDuckStatesBehaviours;
 
 public class SimpleDuckTest {
 
@@ -57,11 +60,11 @@ public class SimpleDuckTest {
 
 		StateOptions options = getOptions();
 		ducks.add(new SimpleDuck(new SimpleDuckStatesBehaviours(getSimpleDuckConfig(), options)));
-		ducks.add(new ToyDuck(new ToyDuckStatesBehaviours(getToyDuckConfig(), options)));
-		
+		ducks.add(new SimpleDuck(new SimpleDuckStatesBehaviours(getToyDuckConfig(), options)));
+
 		for (StatefullDuck duck : ducks) {
 			List<Command> commands = new ArrayList<Command>();
-			
+
 			for (int i = 0; i < 2; i++) {
 				commands.add(new MoveEastCommand(duck));
 				commands.add(new MoveEastCommand(duck));
@@ -84,7 +87,7 @@ public class SimpleDuckTest {
 				commands.add(new MoveEastCommand(duck));
 				commands.add(new TakeOffCommand(duck));
 			}
-			
+
 			for (Command command : commands) {
 				command.execute();
 			}
@@ -101,7 +104,7 @@ public class SimpleDuckTest {
 		behaviours_full_ground.setRechargeBehaviour(new RechargeBehaviourChangeBattery());
 		behaviours_full_ground.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_ground.setSwimBehaviour(new SwimBehaviourKeepOnWater());
-		
+
 		DuckBehaviours behaviours_empty_ground = new SimpleDuckBehaviours();
 		behaviours_empty_ground.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_ground.setQuackBehaviour(new QuackBehaviourDefault());
@@ -115,7 +118,7 @@ public class SimpleDuckTest {
 		behaviours_full_water.setRechargeBehaviour(new RechargeBehaviourChangeBattery());
 		behaviours_full_water.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_water.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_empty_water = new SimpleDuckBehaviours();
 		behaviours_empty_water.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_water.setQuackBehaviour(new QuackBehaviourDefault());
@@ -129,14 +132,14 @@ public class SimpleDuckTest {
 		behaviours_full_air.setRechargeBehaviour(new RechargeBehaviourChangeBattery());
 		behaviours_full_air.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_air.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_empty_air = new SimpleDuckBehaviours();
 		behaviours_empty_air.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_air.setQuackBehaviour(new QuackBehaviourDefault());
 		behaviours_empty_air.setRechargeBehaviour(new RechargeBehaviourChangeBattery());
 		behaviours_empty_air.setWalkBehaviour(new WalkBehaviourUncharged());
 		behaviours_empty_air.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		behaviours_full_ground.setMoveBehaviour(new MoveBehaviourWalk());
 		behaviours_empty_ground.setMoveBehaviour(new MoveBehaviourNoCharge());
 		behaviours_full_water.setMoveBehaviour(new MoveBehaviourSwimAsToy());
@@ -144,7 +147,7 @@ public class SimpleDuckTest {
 		behaviours_full_air.setMoveBehaviour(new MoveBehaviourWalkWaiveWings());
 		behaviours_empty_air.setMoveBehaviour(new MoveBehaviourNoCharge());
 
-		Map <DuckStates, DuckBehaviours> map = new HashMap<DuckStates, DuckBehaviours>();
+		Map<DuckStates, DuckBehaviours> map = new HashMap<DuckStates, DuckBehaviours>();
 		map.put(new DuckStates(ChargeState.FULL, EnvironmentState.GROUND), behaviours_full_ground);
 		map.put(new DuckStates(ChargeState.EMPTY, EnvironmentState.GROUND), behaviours_empty_ground);
 		map.put(new DuckStates(ChargeState.FULL, EnvironmentState.WATER), behaviours_full_water);
@@ -161,7 +164,7 @@ public class SimpleDuckTest {
 		behaviours_full_ground.setRechargeBehaviour(new RechargeBehaviourEat());
 		behaviours_full_ground.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_ground.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_empty_ground = new SimpleDuckBehaviours();
 		behaviours_empty_ground.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_ground.setQuackBehaviour(new QuackBehaviourDefault());
@@ -175,28 +178,28 @@ public class SimpleDuckTest {
 		behaviours_full_water.setRechargeBehaviour(new RechargeBehaviourDrink());
 		behaviours_full_water.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_water.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_empty_water = new SimpleDuckBehaviours();
 		behaviours_empty_water.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_water.setQuackBehaviour(new QuackBehaviourDefault());
 		behaviours_empty_water.setRechargeBehaviour(new RechargeBehaviourDrink());
 		behaviours_empty_water.setWalkBehaviour(new WalkBehaviourUncharged());
 		behaviours_empty_water.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_full_air = new SimpleDuckBehaviours();
 		behaviours_full_air.setFlyBehaviour(new FlyBehaviourBirdsStyle());
 		behaviours_full_air.setQuackBehaviour(new QuackBehaviourDefault());
 		behaviours_full_air.setRechargeBehaviour(new RechargeBehaviourEatInAir());
 		behaviours_full_air.setWalkBehaviour(new WalkBehaviourCharged());
 		behaviours_full_air.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		DuckBehaviours behaviours_empty_air = new SimpleDuckBehaviours();
 		behaviours_empty_air.setFlyBehaviour(new FlyBehaviourNoCharge());
 		behaviours_empty_air.setQuackBehaviour(new QuackBehaviourDefault());
 		behaviours_empty_air.setRechargeBehaviour(new RechargeBehaviourEatInAir());
 		behaviours_empty_air.setWalkBehaviour(new WalkBehaviourUncharged());
 		behaviours_empty_air.setSwimBehaviour(new SwimBehaviourDuck());
-		
+
 		behaviours_full_ground.setMoveBehaviour(new MoveBehaviourWalk());
 		behaviours_empty_ground.setMoveBehaviour(new MoveBehaviourNoCharge());
 		behaviours_full_water.setMoveBehaviour(new MoveBehaviourSwimAsBirds());
@@ -204,7 +207,7 @@ public class SimpleDuckTest {
 		behaviours_full_air.setMoveBehaviour(new MoveBehaviourFlyAsBirds());
 		behaviours_empty_air.setMoveBehaviour(new MoveBehaviourNoCharge());
 
-		Map <DuckStates, DuckBehaviours> map = new HashMap<DuckStates, DuckBehaviours>();
+		Map<DuckStates, DuckBehaviours> map = new HashMap<DuckStates, DuckBehaviours>();
 		map.put(new DuckStates(ChargeState.FULL, EnvironmentState.GROUND), behaviours_full_ground);
 		map.put(new DuckStates(ChargeState.EMPTY, EnvironmentState.GROUND), behaviours_empty_ground);
 		map.put(new DuckStates(ChargeState.FULL, EnvironmentState.WATER), behaviours_full_water);
@@ -216,31 +219,18 @@ public class SimpleDuckTest {
 
 	private StateOptions getOptions() {
 		return new StateOptions() {
-			
+
 			public DuckStates getInitialStates() {
 				return new DuckStates(ChargeState.FULL, EnvironmentState.GROUND);
 			}
-			
-			public ChargeStateOptions getChargeStateOptions() {
-				return new ChargeStateOptions() {
-					
-					public int getMaxChargeLevel() {
-						return 10;
-					}
-				};
-			}
 
-			public PositionStateOptions getPositionStateOptions() {
-				return new PositionStateOptions() {
-
-					public Position getStartPosition() {
-						return new Position2D(0, 10);
-					}
-					
-				};
+			public DuckStateType getStateType() {
+				ChargeStateType chargeStateType = new DefaultChargeStateType(10);
+				EnvironmentStateType environmentStateType = new DefaultEnvironmentStateType();
+				PositionStateType positionStateType = new DefaultPositionStateType(new Position2D(0, 10));
+				return new DuckStateTypeDefault(chargeStateType, environmentStateType, positionStateType);
 			}
 		};
 	}
-	
 
 }

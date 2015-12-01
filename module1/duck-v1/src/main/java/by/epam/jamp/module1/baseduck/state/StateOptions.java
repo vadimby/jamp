@@ -1,14 +1,11 @@
 package by.epam.jamp.module1.baseduck.state;
 
-import by.epam.jamp.module1.baseduck.state.charge.ChargeStateOptions;
-import by.epam.jamp.module1.baseduck.state.position.PositionStateOptions;
-
+// настройка параметров поведний осуществляется через данный интерфейс. 
+// (начальные координаты, максимальный уровень энергии, поведение по умолчанию) 
 public interface StateOptions {
-
-	ChargeStateOptions getChargeStateOptions();
 
 	DuckStates getInitialStates();
 
-	PositionStateOptions getPositionStateOptions();
+	DuckStateType getStateType();
 
 }

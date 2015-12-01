@@ -7,18 +7,26 @@ import by.epam.jamp.module1.baseduck.behaviours.recharge.RechargeBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.swim.SwimBehaviour;
 import by.epam.jamp.module1.baseduck.behaviours.walk.WalkBehaviour;
 
+// базовый набор поведений необходимый для корректной работы. 
+// все модули подключаются как инетерфесы и не зависят от рализаций
 public interface DuckBehaviours {
 
+	// утка может летать
 	FlyBehaviour getFlyBehaviour();
 
+	// утка может квакать
 	QuackBehaviour getQuackBehaviour();
 
+	// ... плавать
 	SwimBehaviour getSwimBehaviour();
 
+	// ... ходить
 	WalkBehaviour getWalkBehaviour();
 
+	// ... восполнять запас энергии = есть, пить, менять батарейки
 	RechargeBehaviour getRechargeBehaviour();
-	
+
+	// "оказалось", утка долна подчинять командам движения
 	MoveBehaviour getMoveBehaviour();
 
 	void setFlyBehaviour(FlyBehaviour flyBehaviour);
@@ -30,7 +38,7 @@ public interface DuckBehaviours {
 	void setWalkBehaviour(WalkBehaviour walkBehaviour);
 
 	void setRechargeBehaviour(RechargeBehaviour rechargeBehaviour);
-	
+
 	void setMoveBehaviour(MoveBehaviour moveBehaviour);
 
 }

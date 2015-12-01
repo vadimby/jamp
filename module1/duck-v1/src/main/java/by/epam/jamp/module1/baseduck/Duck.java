@@ -2,9 +2,13 @@ package by.epam.jamp.module1.baseduck;
 
 public abstract class Duck {
 
+	// Интерфейс содержащий все возможные типы поведений, позволяет изменить
+	// любое из поведений в любой момент.
+	// Так же возможно сразу заменить весь банч поведений
 	private DuckBehaviours currentBehaviours;
-	
-	public Duck(DuckBehaviours currentBehaviours){
+
+	// задает начальные поведения
+	public Duck(DuckBehaviours currentBehaviours) {
 		this.currentBehaviours = currentBehaviours;
 	}
 
@@ -19,7 +23,7 @@ public abstract class Duck {
 	public void fly() {
 		currentBehaviours.getFlyBehaviour().fly();
 	}
-	
+
 	public void move() {
 		currentBehaviours.getMoveBehaviour().move();
 	}
@@ -31,7 +35,7 @@ public abstract class Duck {
 	public void recharge() {
 		currentBehaviours.getRechargeBehaviour().recharge();
 	}
-	
+
 	public DuckBehaviours getCurrentBehaviours() {
 		return currentBehaviours;
 	}
@@ -39,5 +43,5 @@ public abstract class Duck {
 	public void setCurrentBehaviours(DuckBehaviours currentBehaviours) {
 		this.currentBehaviours = currentBehaviours;
 	}
-	
+
 }

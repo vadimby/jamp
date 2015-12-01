@@ -10,7 +10,7 @@ import by.epam.jamp.module1.baseduck.state.StatefullDuckBehaviours;
 public class SimpleDuckStatesBehaviours extends StatefullDuckBehaviours {
 
 	public SimpleDuckStatesBehaviours(Map<DuckStates, DuckBehaviours> statesBehaviours, StateOptions options) {
-		super(statesBehaviours, options);
+		super(statesBehaviours, options, statesBehaviours.get(options.getInitialStates()));
 	}
 
 }
