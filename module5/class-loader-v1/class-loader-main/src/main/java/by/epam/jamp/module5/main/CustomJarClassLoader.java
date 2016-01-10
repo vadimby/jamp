@@ -40,7 +40,6 @@ public class CustomJarClassLoader extends ClassLoader {
 				}
 			}
 		} catch (IOException IOE) {
-			// Просто выведем сообщение об ошибке
 			LOG.debug(WARNING);
 		}
 	}
