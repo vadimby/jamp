@@ -14,7 +14,9 @@
 	<modules>
 		<module>class-loader-runner</module>
 		<module>class-loader-main</module>
-		<module>class-loader-module</module>
+		<module>class-loader-module1</module>
+		<module>class-loader-module2</module>
+		<module>class-loader-module3</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -22,6 +24,11 @@
 				<groupId>by.epam.jamp.module5</groupId>
 				<artifactId>class-loader-main</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
