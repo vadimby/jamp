@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import by.epam.jamp.module5.main.ModuleLoader;
 
 public class LoadModuleCommand implements MenuCommand {
-	
+
 	private static final Logger LOG = Logger.getLogger(LoadModuleCommand.class);
 
 	private final ModuleLoader moduleLoader;
@@ -24,7 +24,7 @@ public class LoadModuleCommand implements MenuCommand {
 		String moduleName = br.readLine();
 		LOG.debug("Enter jar path: ");
 		String jar = br.readLine();
-		
+
 		try {
 			moduleLoader.loadModule(moduleName, jar);
 		} catch (ClassNotFoundException e) {

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import by.epam.jamp.module5.main.ModuleLoader;
 import by.epam.jamp.module5.runner.commands.LoadModuleCommand;
 import by.epam.jamp.module5.runner.commands.MenuCommand;
