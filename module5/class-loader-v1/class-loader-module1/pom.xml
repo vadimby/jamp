@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>class-loader-main</artifactId>
+	<artifactId>class-loader-module1</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Class Loader main module</name>
+	<name>Class Loader Module1 module</name>
 	<description>none</description>
 
 	<parent>
@@ -17,25 +17,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>by.epam.jamp.module5</groupId>
+			<artifactId>class-loader-main</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>by.epam.jamp.module5.main.Runner</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
