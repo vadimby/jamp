@@ -12,7 +12,17 @@
 	<description>none</description>
 
 	<modules>
+		<module>class-loader-runner</module>
 		<module>class-loader-main</module>
 		<module>class-loader-module</module>
 	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>by.epam.jamp.module5</groupId>
+				<artifactId>class-loader-main</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
