@@ -6,9 +6,13 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.apache.log4j.Logger;
+
 public class CustomJarClassLoader extends ClassLoader {
 
-	private static final String WARNING = "Warning : No jar file found. Packet unmarshalling won't be possible. Please verify your classpath";
+	private static final Logger LOG = Logger.getLogger(CustomJarClassLoader.class);
+
+	private static final String WARNING = "Warning : No jar file found";
 
 	private Class<?> clazz;
 
@@ -37,7 +41,7 @@ public class CustomJarClassLoader extends ClassLoader {
 			}
 		} catch (IOException IOE) {
 			// Просто выведем сообщение об ошибке
-			System.out.println(WARNING);
+			LOG.debug(WARNING);
 		}
 	}
 

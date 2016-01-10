@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import by.epam.jamp.module5.runner.commands.MenuCommand;
 
 public class MainMenu {
+
+	private static final Logger LOG = Logger.getLogger(Runner.class);
 
 	private Map<Integer, String> labels;
 	private Map<Integer, MenuCommand> commands;
@@ -29,13 +33,13 @@ public class MainMenu {
 
 	private void readInput() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Enter String");
+		LOG.debug("Enter String");
 		String s = br.readLine();
 
 		MenuCommand menuCommand = commands.get(Integer.parseInt(s));
 
 		if (menuCommand == null) {
-			System.out.println("Wrong input!!! Try again...");
+			LOG.debug("Wrong input!!! Try again...");
 			return;
 		}
 
@@ -43,9 +47,9 @@ public class MainMenu {
 	}
 
 	private void showMenu() {
-		System.out.println("==================================");
+		LOG.debug("==================================");
 		for (Integer key : labels.keySet()) {
-			System.out.println(key + "). " + labels.get(key));
+			LOG.debug(key + "). " + labels.get(key));
 		}
 	}
 }

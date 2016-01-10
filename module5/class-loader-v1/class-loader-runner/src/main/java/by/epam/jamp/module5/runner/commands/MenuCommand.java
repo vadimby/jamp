@@ -5,5 +5,5 @@ import java.io.IOException;
 public interface MenuCommand {
 
 	void run() throws IOException;
-	
+
 }
