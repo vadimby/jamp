@@ -17,34 +17,42 @@ public class CustomJarClassLoader extends ClassLoader {
 	private Class<?> clazz;
 
 	public CustomJarClassLoader(String jarFilePath) {
-		init(jarFilePath);
-	}
-
-	private void init(String jarFilePath) {
 		try {
-			JarFile jarFile = new JarFile(jarFilePath);
-			Enumeration<JarEntry> entries = jarFile.entries();
-			while (entries.hasMoreElements()) {
-				JarEntry jarEntry = entries.nextElement();
-				String className = jarEntry.getName().replace('/', '.');
-				if (className.endsWith(".class")) {
-					byte[] classData = loadClassData(jarFile, jarEntry);
-					if (classData != null) {
-						Class<?> clazz = defineClass(className.substring(0, className.length() - 6), classData, 0,
-								classData.length);
-
-						if (IModule.class.isAssignableFrom(clazz)) {
-							this.clazz = clazz;
-						}
-					}
-				}
-			}
-		} catch (IOException IOE) {
+			init(jarFilePath);
+		} catch (IOException e) {
 			LOG.debug(WARNING);
 		}
 	}
 
-	public Class<?> loadClass() throws ClassNotFoundException {
+	private void init(String jarFilePath) throws IOException {
+		JarFile jarFile = new JarFile(jarFilePath);
+		Enumeration<JarEntry> entries = jarFile.entries();
+		while (entries.hasMoreElements()) {
+			JarEntry jarEntry = entries.nextElement();
+			String className = jarEntry.getName().replace('/', '.');
+			if (!className.endsWith(".class")) {
+				continue;
+			}
+
+			byte[] classData = loadClassData(jarFile, jarEntry);
+			if (classData == null) {
+				continue;
+			}
+
+			Class<?> clazz = defineClass(className.substring(0, className.length() - 6), classData, 0,
+					classData.length);
+
+			if (IModule.class.isAssignableFrom(clazz)) {
+				this.clazz = clazz;
+			}
+		}
+
+	}
+
+	public Class<?> loadMainClass() throws ClassNotFoundException {
+		if (clazz == null) {
+			return null;
+		}
 		return loadClass(clazz.getName());
 	}
 

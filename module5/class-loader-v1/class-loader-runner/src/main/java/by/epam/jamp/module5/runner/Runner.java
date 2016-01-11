@@ -1,19 +1,19 @@
 package by.epam.jamp.module5.runner;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import by.epam.jamp.module5.main.ModuleLoader;
+import by.epam.jamp.module5.main.ModuleLoaderImpl;
 import by.epam.jamp.module5.runner.commands.LoadModuleCommand;
 import by.epam.jamp.module5.runner.commands.MenuCommand;
 import by.epam.jamp.module5.runner.commands.ShowModulesCommand;
 
 public class Runner {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 
-		ModuleLoader moduleLoader = new ModuleLoader();
+		ModuleLoader moduleLoader = new ModuleLoaderImpl();
 		new MainMenu(getLabels(), getCommands(moduleLoader)).show();
 
 	}

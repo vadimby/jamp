@@ -8,7 +8,7 @@ public class Runner {
 
 	public static void main(String[] args) throws Exception {
 
-		ModuleLoader loader = new ModuleLoader();
+		ModuleLoader loader = new ModuleLoaderImpl();
 		loader.loadModule("Module1", "D:\\00\\class-loader-module1-1.0.0-SNAPSHOT.jar");
 		loader.loadModule("Module1", "D:\\00\\class-loader-module1-1.0.0-SNAPSHOT.jar");
 		loader.loadModule("Module2", "D:\\00\\class-loader-module2-1.0.0-SNAPSHOT.jar");

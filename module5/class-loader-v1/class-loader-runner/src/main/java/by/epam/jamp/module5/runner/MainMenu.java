@@ -1,7 +1,6 @@
 package by.epam.jamp.module5.runner;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
@@ -21,7 +20,7 @@ public class MainMenu {
 		this.commands = commands;
 	}
 
-	public void show() throws IOException {
+	public void show() throws Exception {
 
 		while (true) {
 			showMenu();
@@ -31,7 +30,7 @@ public class MainMenu {
 
 	}
 
-	private void readInput() throws IOException {
+	private void readInput() throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		LOG.debug("Enter String");
 		String s = br.readLine();
