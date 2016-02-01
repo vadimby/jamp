@@ -1,9 +1,9 @@
-package by.epam.jamp.module8.task1;
+package by.epam.jamp.module8.task1.v1;
 
 public class Runner {
 
 	public static void main(String[] args) {
-		SharedResource sharedResource = new SharedResource(10, 5, 10);
+		SharedResource sharedResource = new SharedResource(5, 10);
 		
 		for (int i = 0; i < 10; i++) {
 			new Thread(new Consumer(i, sharedResource)).start();
