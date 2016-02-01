@@ -6,15 +6,12 @@ import java.util.Queue;
 public class SharedResource {
 
 	private final Queue<Integer> data = new LinkedList<Integer>();
-	private final Object lock = new Object();
 	private final int minSize;
 	private final int maxSize;
 
 	public SharedResource(final int minSize, final int maxSize) {
 		this.minSize = minSize;
 		this.maxSize = maxSize;
-
-		// TODO Auto-generated constructor stub
 	}
 
 	public Queue<Integer> getData() {
