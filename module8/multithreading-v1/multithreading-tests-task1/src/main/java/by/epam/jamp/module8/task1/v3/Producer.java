@@ -1,4 +1,4 @@
-package by.epam.jamp.module8.task1.v2;
+package by.epam.jamp.module8.task1.v3;
 
 import org.apache.log4j.Logger;
 
@@ -18,12 +18,13 @@ public class Producer implements Runnable {
 
 	public void run() {
 		while (true) {
-			synchronized (sharedResource.getLock()) {
+			sharedResource.getLock().lock();
+			try {
 				while (sharedResource.getData().size() >= sharedResource.getMaxSize()) {
 					LOG.debug("Consumer [ " + producerId + " ] - \twaiting for place - \t queue size:"
 							+ sharedResource.getData().size());
 					try {
-						sharedResource.getLock().wait();
+						sharedResource.getQueueNotEmpty().await();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -33,14 +34,15 @@ public class Producer implements Runnable {
 				sharedResource.getData().add(counter);
 				LOG.debug("Producer [ " + producerId + " ] - produce produce with ID: " + counter + "\t queue size:"
 						+ sharedResource.getData().size());
-				sharedResource.getLock().notifyAll();
+				sharedResource.getQueueNotFull().signalAll();
 				try {
 					Thread.sleep(2);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+			} finally {
+				sharedResource.getLock().unlock();
 			}
 		}
 

@@ -1,4 +1,4 @@
-package by.epam.jamp.module8.task1.v2;
+package by.epam.jamp.module8.task1.v3;
 
 import org.apache.log4j.Logger;
 
@@ -16,12 +16,13 @@ public class Consumer implements Runnable {
 
 	public void run() {
 		while (true) {
-			synchronized (sharedResource.getLock()) {
+			sharedResource.getLock().lock();
+			try {
 				while (sharedResource.getMinSize() >= sharedResource.getData().size()) {
 					LOG.debug("Consumer [ " + consumerId + " ] - \twaiting for product - \t queue size:"
 							+ sharedResource.getData().size());
 					try {
-						sharedResource.getLock().wait();
+						sharedResource.getQueueNotFull().await();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -30,14 +31,17 @@ public class Consumer implements Runnable {
 				Integer id = sharedResource.getData().poll();
 				LOG.debug("Consumer [ " + consumerId + " ] - take the product with id: " + id + "\t queue size:"
 						+ sharedResource.getData().size());
-				sharedResource.getLock().notifyAll();
+				sharedResource.getQueueNotEmpty().signalAll();
 				try {
 					Thread.sleep(2);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			} finally {
+				sharedResource.getLock().unlock();
 			}
+
 		}
 	}
 
