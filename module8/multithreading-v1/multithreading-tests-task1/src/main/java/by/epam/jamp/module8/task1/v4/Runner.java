@@ -2,27 +2,20 @@ package by.epam.jamp.module8.task1.v4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Runner {
 
 	public static void main(String[] args) throws InterruptedException {
-		SharedResource sharedResource = new SharedResource(5, 10);
+		SharedResource sharedResource = new SharedResource(new ArrayBlockingQueue<Integer>(10, true), 5);
 
-		Thread.sleep(200);
-		List<Thread> c = new ArrayList<Thread>();
-		List<Thread> p = new ArrayList<Thread>();
+		List<Thread> t = new ArrayList<Thread>();
 		for (int i = 0; i < 10; i++) {
-			c.add(new Thread(new Consumer(i, sharedResource)));
-			p.add(new Thread(new Producer(i, sharedResource)));
+			t.add(new Thread(new Consumer(i, sharedResource)));
+			t.add(new Thread(new Producer(i, sharedResource)));
 		}
 
-		Thread.sleep(200);
-		
-		for (Thread thread : p) {
-			thread.start();
-		}
-
-		for (Thread thread : c) {
+		for (Thread thread : t) {
 			thread.start();
 		}
 
