@@ -1,0 +1,12 @@
+rootProject.name = 'rofor-agent-tool'
+include ':rofor-at-web'
+include ':rofor-at-interface'
+include ':rofor-at-service'
+include ':rofor-at-daemon'
+include ':rofor-at-ui'
+
+project(':rofor-at-web').projectDir = "$rootDir/rofor-at-web" as File
+project(':rofor-at-interface').projectDir = "$rootDir/rofor-at-interface" as File
+project(':rofor-at-service').projectDir = "$rootDir/rofor-at-service" as File
+project(':rofor-at-daemon').projectDir = "$rootDir/rofor-at-daemon" as File
+project(':rofor-at-ui').projectDir = "$rootDir/rofor-at-ui" as File

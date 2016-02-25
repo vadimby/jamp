@@ -1,0 +1,23 @@
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'dependencyAnalysis'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+description = 'Rofor Agent Tool: Daemon module'
+dependencies {
+  compile project(':rofor-at-interface')
+    compile "commons-io:commons-io:$commonsIoVersion"
+    compile "commons-logging:commons-logging:$commonsLoggingVersion"
+    compile "commons-lang:commons-lang:$commonsLangVersion"
+    compile "log4j:log4j:$log4jVersion"
+    compile "javax.mail:mail:$javaxMailVersion"
+    compile "org.apache.commons:commons-vfs2:$commonsVfs2Version"
+    compile "com.github.junrar:junrar:$junrarVersion"
+    compile "org.apache.poi:poi:$apachePoiVersion"
+    compile "org.apache.poi:poi-ooxml:$apachePoiOoxmlVersion"
+    compile "org.springframework:spring-web:$spring3Version"
+    compile "net.sourceforge.jexcelapi:jxl:$jexcelapiJxlVersion"
+    testCompile "junit:junit:$junitVersion"
+}

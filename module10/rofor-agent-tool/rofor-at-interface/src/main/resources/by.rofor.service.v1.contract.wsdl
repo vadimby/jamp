@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:by:rofor:service:v1:contract" xmlns:tns="urn:by:rofor:service:v1:contract" xmlns:echo="urn:by:rofor:service:v1:types:echo" xmlns:supplier="urn:by:rofor:service:v1:types:supplier"
+	xmlns:commontypes="urn:by:rofor:service:v1:types" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+
+	<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<xsd:schema targetNamespace="urn:by:rofor:service:v1:contract" elementFormDefault="qualified">
+			<xsd:import namespace="urn:by:rofor:service:v1:types:echo" schemaLocation="by.rofor.service.v1.types.echo.xsd" />
+			<xsd:import namespace="urn:by:rofor:service:v1:types:supplier" schemaLocation="by.rofor.service.v1.types.supplier.xsd" />
+
+			<xsd:complexType name="GetAllSuppliersListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetAllSuppliersListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getAllSuppliersList" type="tns:GetAllSuppliersListRequestWrapperType" />
+
+			<xsd:complexType name="GetAllSuppliersListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetAllSuppliersListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getAllSuppliersListResponse" type="tns:GetAllSuppliersListResponseWrapperType" />
+
+			<xsd:complexType name="GetFilteredSuppliersListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetFilteredSuppliersListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredSuppliersList" type="tns:GetFilteredSuppliersListRequestWrapperType" />
+
+			<xsd:complexType name="GetFilteredSuppliersListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetFilteredSuppliersListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredSuppliersListResponse" type="tns:GetFilteredSuppliersListResponseWrapperType" />
+
+			<xsd:complexType name="CreateNewSupplierRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:CreateNewSupplierRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="createNewSupplier" type="tns:CreateNewSupplierRequestWrapperType" />
+
+			<xsd:complexType name="CreateNewSupplierResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:CreateNewSupplierResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="createNewSupplierResponse" type="tns:CreateNewSupplierResponseWrapperType" />
+
+			<xsd:complexType name="UpdateSupplierRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:UpdateSupplierRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateSupplier" type="tns:UpdateSupplierRequestWrapperType" />
+
+			<xsd:complexType name="UpdateSupplierResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:UpdateSupplierResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateSupplierResponse" type="tns:UpdateSupplierResponseWrapperType" />
+
+			<xsd:complexType name="DeleteSuppliersRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:DeleteSuppliersRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteSuppliers" type="tns:DeleteSuppliersRequestWrapperType" />
+
+			<xsd:complexType name="DeleteSuppliersResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:DeleteSuppliersResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteSuppliersResponse" type="tns:DeleteSuppliersResponseWrapperType" />
+
+			<xsd:complexType name="GetFilteredProductsListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetFilteredProductsListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredProductsList" type="tns:GetFilteredProductsListRequestWrapperType" />
+
+			<xsd:complexType name="GetFilteredProductsListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetFilteredProductsListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredProductsListResponse" type="tns:GetFilteredProductsListResponseWrapperType" />
+
+			<xsd:complexType name="GetFilteredEmailConfigsListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetFilteredEmailConfigsListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredEmailConfigsList" type="tns:GetFilteredEmailConfigsListRequestWrapperType" />
+
+			<xsd:complexType name="GetFilteredEmailConfigsListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetFilteredEmailConfigsListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredEmailConfigsListResponse" type="tns:GetFilteredEmailConfigsListResponseWrapperType" />
+
+			<xsd:complexType name="GetFilteredSheetConfigsListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetFilteredSheetConfigsListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredSheetConfigsList" type="tns:GetFilteredSheetConfigsListRequestWrapperType" />
+
+			<xsd:complexType name="GetFilteredSheetConfigsListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetFilteredSheetConfigsListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredSheetConfigsListResponse" type="tns:GetFilteredSheetConfigsListResponseWrapperType" />
+
+			<xsd:complexType name="GetFilteredLettersListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetFilteredLettersListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredLettersList" type="tns:GetFilteredLettersListRequestWrapperType" />
+
+			<xsd:complexType name="GetFilteredLettersListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetFilteredLettersListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getFilteredLettersListResponse" type="tns:GetFilteredLettersListResponseWrapperType" />
+
+			<xsd:complexType name="SaveLetterRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:SaveLetterRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="saveLetter" type="tns:SaveLetterRequestWrapperType" />
+
+			<xsd:complexType name="SaveLetterResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:SaveLetterResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="saveLetterResponse" type="tns:SaveLetterResponseWrapperType" />
+
+			<xsd:complexType name="GetAllUnprocessedLettersRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetAllUnprocessedLettersRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getAllUnprocessedLetters" type="tns:GetAllUnprocessedLettersRequestWrapperType" />
+
+			<xsd:complexType name="GetAllUnprocessedLettersResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetAllUnprocessedLettersResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getAllUnprocessedLettersResponse" type="tns:GetAllUnprocessedLettersResponseWrapperType" />
+
+			<xsd:complexType name="GetLetterAttachmentsRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetLetterAttachmentsRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getLetterAttachments" type="tns:GetLetterAttachmentsRequestWrapperType" />
+
+			<xsd:complexType name="GetLetterAttachmentsResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetLetterAttachmentsResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getLetterAttachmentsResponse" type="tns:GetLetterAttachmentsResponseWrapperType" />
+
+			<xsd:complexType name="GetEmailConfigBySenderRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:GetEmailConfigBySenderRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getEmailConfigBySender" type="tns:GetEmailConfigBySenderRequestWrapperType" />
+
+			<xsd:complexType name="GetEmailConfigBySenderResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:GetEmailConfigBySenderResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getEmailConfigBySenderResponse" type="tns:GetEmailConfigBySenderResponseWrapperType" />
+
+			<xsd:complexType name="SaveProductListRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:SaveProductListRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="saveProductList" type="tns:SaveProductListRequestWrapperType" />
+
+			<xsd:complexType name="SaveProductListResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:SaveProductListResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="saveProductListResponse" type="tns:SaveProductListResponseWrapperType" />
+
+			<xsd:complexType name="UpdateLetterRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:UpdateLetterRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateLetter" type="tns:UpdateLetterRequestWrapperType" />
+
+			<xsd:complexType name="UpdateLetterResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:UpdateLetterResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateLetterResponse" type="tns:UpdateLetterResponseWrapperType" />
+
+			<xsd:complexType name="UpdateEmailConfigRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:UpdateEmailConfigRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateEmailConfig" type="tns:UpdateEmailConfigRequestWrapperType" />
+
+			<xsd:complexType name="UpdateEmailConfigResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:UpdateEmailConfigResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateEmailConfigResponse" type="tns:UpdateEmailConfigResponseWrapperType" />
+
+			<xsd:complexType name="AddSheetConfigRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:AddSheetConfigRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="addSheetConfig" type="tns:AddSheetConfigRequestWrapperType" />
+
+			<xsd:complexType name="AddSheetConfigResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:AddSheetConfigResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="addSheetConfigResponse" type="tns:AddSheetConfigResponseWrapperType" />
+
+			<xsd:complexType name="UpdateSheetConfigRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:UpdateSheetConfigRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateSheetConfig" type="tns:UpdateSheetConfigRequestWrapperType" />
+
+			<xsd:complexType name="UpdateSheetConfigResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:UpdateSheetConfigResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="updateSheetConfigResponse" type="tns:UpdateSheetConfigResponseWrapperType" />
+
+			<xsd:complexType name="DeleteSheetConfigRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:DeleteSheetConfigRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteSheetConfig" type="tns:DeleteSheetConfigRequestWrapperType" />
+
+			<xsd:complexType name="DeleteSheetConfigResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:DeleteSheetConfigResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteSheetConfigResponse" type="tns:DeleteSheetConfigResponseWrapperType" />
+
+			<xsd:complexType name="DeleteEmailConfigRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:DeleteEmailConfigRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteEmailConfig" type="tns:DeleteEmailConfigRequestWrapperType" />
+
+			<xsd:complexType name="DeleteEmailConfigResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:DeleteEmailConfigResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteEmailConfigResponse" type="tns:DeleteEmailConfigResponseWrapperType" />
+
+			<xsd:complexType name="DeleteLetterRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:DeleteLetterRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteLetter" type="tns:DeleteLetterRequestWrapperType" />
+
+			<xsd:complexType name="DeleteLetterResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:DeleteLetterResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="deleteLetterResponse" type="tns:DeleteLetterResponseWrapperType" />
+
+			<xsd:complexType name="ResetLetterStatusRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:ResetLetterStatusRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="resetLetterStatus" type="tns:ResetLetterStatusRequestWrapperType" />
+
+			<xsd:complexType name="ResetLetterStatusResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:ResetLetterStatusResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="resetLetterStatusResponse" type="tns:ResetLetterStatusResponseWrapperType" />
+
+			<xsd:complexType name="DownloadActualLetterRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:DownloadActualLetterRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="downloadActualLetter" type="tns:DownloadActualLetterRequestWrapperType" />
+
+			<xsd:complexType name="DownloadActualLetterResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:DownloadActualLetterResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="downloadActualLetterResponse" type="tns:DownloadActualLetterResponseWrapperType" />
+
+			<xsd:complexType name="IsNewLetterRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:IsNewLetterRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="isNewLetter" type="tns:IsNewLetterRequestWrapperType" />
+
+			<xsd:complexType name="IsNewLetterResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:IsNewLetterResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="isNewLetterResponse" type="tns:IsNewLetterResponseWrapperType" />
+
+			<xsd:complexType name="RemoveObsoleteDataRequestWrapperType">
+				<xsd:sequence>
+					<xsd:element name="request" type="supplier:RemoveObsoleteDataRequestType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="removeObsoleteData" type="tns:RemoveObsoleteDataRequestWrapperType" />
+
+			<xsd:complexType name="RemoveObsoleteDataResponseWrapperType">
+				<xsd:sequence>
+					<xsd:element name="response" type="supplier:RemoveObsoleteDataResponseType" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="removeObsoleteDataResponse" type="tns:RemoveObsoleteDataResponseWrapperType" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="AllSuppliersListRequest">
+		<wsdl:part name="parameters" element="tns:getAllSuppliersList" />
+	</wsdl:message>
+
+	<wsdl:message name="AllSuppliersListResponse">
+		<wsdl:part name="parameters" element="tns:getAllSuppliersListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredSuppliersListRequest">
+		<wsdl:part name="parameters" element="tns:getFilteredSuppliersList" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredSuppliersListResponse">
+		<wsdl:part name="parameters" element="tns:getFilteredSuppliersListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="CreateNewSupplierRequest">
+		<wsdl:part name="parameters" element="tns:createNewSupplier" />
+	</wsdl:message>
+
+	<wsdl:message name="CreateNewSupplierResponse">
+		<wsdl:part name="parameters" element="tns:createNewSupplierResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateSupplierRequest">
+		<wsdl:part name="parameters" element="tns:updateSupplier" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateSupplierResponse">
+		<wsdl:part name="parameters" element="tns:updateSupplierResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteSuppliersRequest">
+		<wsdl:part name="parameters" element="tns:deleteSuppliers" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteSuppliersResponse">
+		<wsdl:part name="parameters" element="tns:deleteSuppliersResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredProductsListRequest">
+		<wsdl:part name="parameters" element="tns:getFilteredProductsList" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredProductsListResponse">
+		<wsdl:part name="parameters" element="tns:getFilteredProductsListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredEmailConfigsListRequest">
+		<wsdl:part name="parameters" element="tns:getFilteredEmailConfigsList" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredEmailConfigsListResponse">
+		<wsdl:part name="parameters" element="tns:getFilteredEmailConfigsListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredSheetConfigsListRequest">
+		<wsdl:part name="parameters" element="tns:getFilteredSheetConfigsList" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredSheetConfigsListResponse">
+		<wsdl:part name="parameters" element="tns:getFilteredSheetConfigsListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredLettersListRequest">
+		<wsdl:part name="parameters" element="tns:getFilteredLettersList" />
+	</wsdl:message>
+
+	<wsdl:message name="FilteredLettersListResponse">
+		<wsdl:part name="parameters" element="tns:getFilteredLettersListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="SaveLetterRequest">
+		<wsdl:part name="parameters" element="tns:saveLetter" />
+	</wsdl:message>
+
+	<wsdl:message name="SaveLetterResponse">
+		<wsdl:part name="parameters" element="tns:saveLetterResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="GetAllUnprocessedLettersRequest">
+		<wsdl:part name="parameters" element="tns:getAllUnprocessedLetters" />
+	</wsdl:message>
+
+	<wsdl:message name="GetAllUnprocessedLettersResponse">
+		<wsdl:part name="parameters" element="tns:getAllUnprocessedLettersResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="GetLetterAttachmentsRequest">
+		<wsdl:part name="parameters" element="tns:getLetterAttachments" />
+	</wsdl:message>
+
+	<wsdl:message name="GetLetterAttachmentsResponse">
+		<wsdl:part name="parameters" element="tns:getLetterAttachmentsResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="GetEmailConfigBySenderRequest">
+		<wsdl:part name="parameters" element="tns:getEmailConfigBySender" />
+	</wsdl:message>
+
+	<wsdl:message name="GetEmailConfigBySenderResponse">
+		<wsdl:part name="parameters" element="tns:getEmailConfigBySenderResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="SaveProductListRequest">
+		<wsdl:part name="parameters" element="tns:saveProductList" />
+	</wsdl:message>
+
+	<wsdl:message name="SaveProductListResponse">
+		<wsdl:part name="parameters" element="tns:saveProductListResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateLetterRequest">
+		<wsdl:part name="parameters" element="tns:updateLetter" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateLetterResponse">
+		<wsdl:part name="parameters" element="tns:updateLetterResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateEmailConfigRequest">
+		<wsdl:part name="parameters" element="tns:updateEmailConfig" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateEmailConfigResponse">
+		<wsdl:part name="parameters" element="tns:updateEmailConfigResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="AddSheetConfigRequest">
+		<wsdl:part name="parameters" element="tns:addSheetConfig" />
+	</wsdl:message>
+
+	<wsdl:message name="AddSheetConfigResponse">
+		<wsdl:part name="parameters" element="tns:addSheetConfigResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateSheetConfigRequest">
+		<wsdl:part name="parameters" element="tns:updateSheetConfig" />
+	</wsdl:message>
+
+	<wsdl:message name="UpdateSheetConfigResponse">
+		<wsdl:part name="parameters" element="tns:updateSheetConfigResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteEmailConfigRequest">
+		<wsdl:part name="parameters" element="tns:deleteEmailConfig" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteEmailConfigResponse">
+		<wsdl:part name="parameters" element="tns:deleteEmailConfigResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteSheetConfigRequest">
+		<wsdl:part name="parameters" element="tns:deleteSheetConfig" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteSheetConfigResponse">
+		<wsdl:part name="parameters" element="tns:deleteSheetConfigResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteLetterRequest">
+		<wsdl:part name="parameters" element="tns:deleteLetter" />
+	</wsdl:message>
+
+	<wsdl:message name="DeleteLetterResponse">
+		<wsdl:part name="parameters" element="tns:deleteLetterResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="ResetLetterStatusRequest">
+		<wsdl:part name="parameters" element="tns:resetLetterStatus" />
+	</wsdl:message>
+
+	<wsdl:message name="ResetLetterStatusResponse">
+		<wsdl:part name="parameters" element="tns:resetLetterStatusResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="DownloadActualLetterRequest">
+		<wsdl:part name="parameters" element="tns:downloadActualLetter" />
+	</wsdl:message>
+
+	<wsdl:message name="DownloadActualLetterResponse">
+		<wsdl:part name="parameters" element="tns:downloadActualLetterResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="IsNewLetterRequest">
+		<wsdl:part name="parameters" element="tns:isNewLetter" />
+	</wsdl:message>
+
+	<wsdl:message name="IsNewLetterResponse">
+		<wsdl:part name="parameters" element="tns:isNewLetterResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="RemoveObsoleteDataRequest">
+		<wsdl:part name="parameters" element="tns:removeObsoleteData" />
+	</wsdl:message>
+
+	<wsdl:message name="RemoveObsoleteDataResponse">
+		<wsdl:part name="parameters" element="tns:removeObsoleteDataResponse" />
+	</wsdl:message>
+
+	<!-- Faults messages -->
+
+	<wsdl:message name="ApplicationFaultException">
+		<wsdl:part name="fault" element="commontypes:ApplicationFault" />
+	</wsdl:message>
+
+	<wsdl:message name="ExternalFaultException">
+		<wsdl:part name="fault" element="commontypes:ExternalFault" />
+	</wsdl:message>
+
+	<wsdl:message name="ServiceFaultException">
+		<wsdl:part name="fault" element="commontypes:ServiceFault" />
+	</wsdl:message>
+
+	<wsdl:portType name="SupplierService">
+		<wsdl:operation name="getAllSuppliersList">
+			<wsdl:input message="tns:AllSuppliersListRequest" />
+			<wsdl:output message="tns:AllSuppliersListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredSuppliersList">
+			<wsdl:input message="tns:FilteredSuppliersListRequest" />
+			<wsdl:output message="tns:FilteredSuppliersListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="createNewSupplier">
+			<wsdl:input message="tns:CreateNewSupplierRequest" />
+			<wsdl:output message="tns:CreateNewSupplierResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="updateSupplier">
+			<wsdl:input message="tns:UpdateSupplierRequest" />
+			<wsdl:output message="tns:UpdateSupplierResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteSuppliers">
+			<wsdl:input message="tns:DeleteSuppliersRequest" />
+			<wsdl:output message="tns:DeleteSuppliersResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredProductsList">
+			<wsdl:input message="tns:FilteredProductsListRequest" />
+			<wsdl:output message="tns:FilteredProductsListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredEmailConfigsList">
+			<wsdl:input message="tns:FilteredEmailConfigsListRequest" />
+			<wsdl:output message="tns:FilteredEmailConfigsListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredSheetConfigsList">
+			<wsdl:input message="tns:FilteredSheetConfigsListRequest" />
+			<wsdl:output message="tns:FilteredSheetConfigsListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredLettersList">
+			<wsdl:input message="tns:FilteredLettersListRequest" />
+			<wsdl:output message="tns:FilteredLettersListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="updateEmailConfig">
+			<wsdl:input message="tns:UpdateEmailConfigRequest" />
+			<wsdl:output message="tns:UpdateEmailConfigResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="addSheetConfig">
+			<wsdl:input message="tns:AddSheetConfigRequest" />
+			<wsdl:output message="tns:AddSheetConfigResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="updateSheetConfig">
+			<wsdl:input message="tns:UpdateSheetConfigRequest" />
+			<wsdl:output message="tns:UpdateSheetConfigResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteSheetConfig">
+			<wsdl:input message="tns:DeleteSheetConfigRequest" />
+			<wsdl:output message="tns:DeleteSheetConfigResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteEmailConfig">
+			<wsdl:input message="tns:DeleteEmailConfigRequest" />
+			<wsdl:output message="tns:DeleteEmailConfigResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteLetter">
+			<wsdl:input message="tns:DeleteLetterRequest" />
+			<wsdl:output message="tns:DeleteLetterResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="resetLetterStatus">
+			<wsdl:input message="tns:ResetLetterStatusRequest" />
+			<wsdl:output message="tns:ResetLetterStatusResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="downloadActualLetter">
+			<wsdl:input message="tns:DownloadActualLetterRequest" />
+			<wsdl:output message="tns:DownloadActualLetterResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:portType name="EmailService">
+		<wsdl:operation name="saveLetter">
+			<wsdl:input message="tns:SaveLetterRequest" />
+			<wsdl:output message="tns:SaveLetterResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getAllUnprocessedLetters">
+			<wsdl:input message="tns:GetAllUnprocessedLettersRequest" />
+			<wsdl:output message="tns:GetAllUnprocessedLettersResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getLetterAttachments">
+			<wsdl:input message="tns:GetLetterAttachmentsRequest" />
+			<wsdl:output message="tns:GetLetterAttachmentsResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getEmailConfigBySender">
+			<wsdl:input message="tns:GetEmailConfigBySenderRequest" />
+			<wsdl:output message="tns:GetEmailConfigBySenderResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="saveProductList">
+			<wsdl:input message="tns:SaveProductListRequest" />
+			<wsdl:output message="tns:SaveProductListResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="updateLetter">
+			<wsdl:input message="tns:UpdateLetterRequest" />
+			<wsdl:output message="tns:UpdateLetterResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="isNewLetter">
+			<wsdl:input message="tns:IsNewLetterRequest" />
+			<wsdl:output message="tns:IsNewLetterResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+
+		<wsdl:operation name="removeObsoleteData">
+			<wsdl:input message="tns:RemoveObsoleteDataRequest" />
+			<wsdl:output message="tns:RemoveObsoleteDataResponse" />
+			<wsdl:fault name="appFault" message="tns:ApplicationFaultException" />
+			<wsdl:fault name="extFault" message="tns:ExternalFaultException" />
+			<wsdl:fault name="svcFault" message="tns:ServiceFaultException" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="SupplierServiceBinding" type="tns:SupplierService">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getAllSuppliersList">
+			<soap12:operation soapAction="http://service.rofor.by/getAllSuppliersList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredSuppliersList">
+			<soap12:operation soapAction="http://service.rofor.by/getFilteredSuppliersList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="createNewSupplier">
+			<soap12:operation soapAction="http://service.rofor.by/createNewSupplier" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateSupplier">
+			<soap12:operation soapAction="http://service.rofor.by/updateSupplier" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteSuppliers">
+			<soap12:operation soapAction="http://service.rofor.by/deleteSuppliers" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredProductsList">
+			<soap12:operation soapAction="http://service.rofor.by/getFilteredProductsList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredEmailConfigsList">
+			<soap12:operation soapAction="http://service.rofor.by/getFilteredEmailConfigsList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredSheetConfigsList">
+			<soap12:operation soapAction="http://service.rofor.by/getFilteredSheetConfigsList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getFilteredLettersList">
+			<soap12:operation soapAction="http://service.rofor.by/getFilteredLettersList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateEmailConfig">
+			<soap12:operation soapAction="http://service.rofor.by/updateEmailConfig" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="addSheetConfig">
+			<soap12:operation soapAction="http://service.rofor.by/addSheetConfig" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateSheetConfig">
+			<soap12:operation soapAction="http://service.rofor.by/updateSheetConfig" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteSheetConfig">
+			<soap12:operation soapAction="http://service.rofor.by/deleteSheetConfig" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteEmailConfig">
+			<soap12:operation soapAction="http://service.rofor.by/deleteEmailConfig" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+
+		<wsdl:operation name="deleteLetter">
+			<soap12:operation soapAction="http://service.rofor.by/deleteLetter" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="resetLetterStatus">
+			<soap12:operation soapAction="http://service.rofor.by/resetLetterStatus" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="downloadActualLetter">
+			<soap12:operation soapAction="http://service.rofor.by/downloadActualLetter" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:binding name="EmailServiceBinding" type="tns:EmailService">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="saveLetter">
+			<soap12:operation soapAction="http://service.rofor.by/saveLetter" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getAllUnprocessedLetters">
+			<soap12:operation soapAction="http://service.rofor.by/getUnprocessedLetters" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getLetterAttachments">
+			<soap12:operation soapAction="http://service.rofor.by/getLetterAttachments" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getEmailConfigBySender">
+			<soap12:operation soapAction="http://service.rofor.by/getEmailConfigBySender" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="saveProductList">
+			<soap12:operation soapAction="http://service.rofor.by/saveProductList" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateLetter">
+			<soap12:operation soapAction="http://service.rofor.by/updateLetter" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="isNewLetter">
+			<soap12:operation soapAction="http://service.rofor.by/isNewLetter" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="removeObsoleteData">
+			<soap12:operation soapAction="http://service.rofor.by/removeObsoleteData" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="appFault">
+				<soap12:fault use="literal" name="appFault" />
+			</wsdl:fault>
+			<wsdl:fault name="extFault">
+				<soap12:fault use="literal" name="extFault" />
+			</wsdl:fault>
+			<wsdl:fault name="svcFault">
+				<soap12:fault use="literal" name="svcFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="RoforService">
+		<wsdl:port name="SupplierServicePort" binding="tns:SupplierServiceBinding">
+			<soap12:address location="http://service.rofor.by/SupplierService" />
+		</wsdl:port>
+		<wsdl:port name="EmailServicePort" binding="tns:EmailServiceBinding">
+			<soap12:address location="http://service.rofor.by/EmailService" />
+		</wsdl:port>
+
+	</wsdl:service>
+</wsdl:definitions>

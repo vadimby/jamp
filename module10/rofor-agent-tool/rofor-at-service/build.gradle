@@ -1,0 +1,24 @@
+apply plugin: 'war'
+apply plugin: 'java'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+description = 'Rofor Agent Tool: Service module'
+dependencies {
+  compile project(':rofor-at-interface')
+    compile "commons-logging:commons-logging:$commonsLoggingVersion"
+    compile "org.apache.cxf:cxf-rt-core:$cxfVersion"
+    compile "org.apache.cxf:cxf-rt-bindings-soap:$cxfVersion"
+    compile "org.apache.cxf:cxf-rt-transports-http:$cxfVersion"
+    compile "org.apache.cxf:cxf-rt-frontend-jaxws:$cxfVersion"
+    compile "com.mchange:c3p0:$c3p0Version"
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "mysql:mysql-connector-java:$mysqlVersion"
+    compile "org.springframework:spring-orm:$spring3Version"
+    compile "org.springframework:spring-web:$spring3Version"
+    compile "org.springframework:spring-tx:$spring3Version"
+    compile "org.apache.commons:commons-lang3:$commonsLang3Version"
+    compile "org.hibernate:hibernate-jpamodelgen:$hibernateJpamodelgenVersion"
+    runtime "org.apache.cxf:cxf-api:$cxfVersion"
+}

@@ -1,0 +1,18 @@
+apply plugin: 'war'
+apply plugin: 'java'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+description = 'Rofor Agent Web: Web module'
+dependencies {
+  compile project(':rofor-at-interface')
+    compile "commons-logging:commons-logging:$commonsLoggingVersion"
+    compile "javax.servlet:jstl:$servletJstlVersion"
+    compile "org.springframework:spring-webmvc:$spring3Version"
+    compile "com.fasterxml.jackson.core:jackson-core:$jacksonCoreVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion"
+    compile "com.fasterxml.jackson.module:jackson-module-jaxb-annotations:$jacksonDatabindVersion"
+    providedCompile "javax.servlet:servlet-api:$servletVersion"
+    providedCompile "javax.servlet.jsp:jsp-api:$servletJspVersion"
+}

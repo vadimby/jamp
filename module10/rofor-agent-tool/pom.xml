@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>by.rofor.at</groupId>
+	<artifactId>rofor-agent-tool</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Rofor Agent Tool: Parent module</name>
+	<description>Rofor Agetn Tool parent module</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.2.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<modules>
+		<module>rofor-at-web</module>
+		<module>rofor-at-interface</module>
+		<module>rofor-at-service</module>
+		<module>rofor-at-daemon</module>
+		<module>rofor-at-ui</module>
+		<!--<module>rofor-at-rest</module>-->
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+				<configuration>
+					<flowInitContext>
+						<masterBranchName>master</masterBranchName>
+						<developBranchName>develop</developBranchName>
+						<featureBranchPrefix>feature/</featureBranchPrefix>
+						<releaseBranchPrefix>release/</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+						<versionTagPrefix>gls-</versionTagPrefix>
+					</flowInitContext>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<scm>
+		<connection>scm:git:ssh://git@bitbucket.org/vadzim_dzeravianka/rofor.git</connection>
+		<developerConnection>scm:git:ssh://git@bitbucket.org/vadzim_dzeravianka/rofor.git</developerConnection>
+		<url>https://bitbucket.org/vadzim_dzeravianka/rofor.git</url>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>repo1</id>
+			<name>Repository 1</name>
+			<uniqueVersion>true</uniqueVersion>
+			<url>file:///d:/work/release/repo1</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<id>repo2</id>
+			<name>Snapshot Repository 1</name>
+			<uniqueVersion>true</uniqueVersion>
+			<url>file:///d:/work/release/repo2</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>by.rofor.at</groupId>
+				<artifactId>rofor-at-interface</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.8.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jadira.usertype</groupId>
+				<artifactId>usertype.core</artifactId>
+				<version>3.1.0.GA</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email</artifactId>
+				<version>1.4</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-core</artifactId>
+				<version>2.4.3</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
