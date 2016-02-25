@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema targetNamespace="urn:by:rofor:service:v1:types:echo" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:by:rofor:service:v1:types:echo" xmlns:commontypes="urn:by:rofor:service:v1:types" elementFormDefault="qualified"
+	version="1.0.0">
+
+	<xsd:import namespace="urn:by:rofor:service:v1:types" schemaLocation="by.rofor.service.v1.types.xsd" />
+
+	<xsd:complexType name="GetEchoRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Echo Request Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent mixed="false">
+			<xsd:extension base="commontypes:BaseRequestType">
+				<xsd:sequence>
+					<xsd:element name="Message" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="GetEchoResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Echo Response Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent mixed="false">
+			<xsd:extension base="commontypes:BaseResponseType">
+				<xsd:sequence>
+					<xsd:element name="Message" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+</xsd:schema>

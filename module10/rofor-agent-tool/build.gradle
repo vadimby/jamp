@@ -1,0 +1,34 @@
+buildscript {
+	repositories {
+  	jcenter()
+	}
+  
+  dependencies {
+		classpath 'io.github.robwin:jgitflow-gradle-plugin:0.3.1'
+	}
+}
+apply plugin: 'io.github.robwin.jgitflow'
+
+allprojects  {
+  apply plugin: 'maven'
+  group = 'by.rofor.at'
+  version = '1.1.0-SNAPSHOT'
+}
+
+subprojects {
+	buildscript {
+		repositories{
+			jcenter()
+			mavenCentral()
+		}	
+
+		dependencies {
+			classpath "com.github.nullstress:DependencyAnalysisPlugin:1.0.3"
+		}
+	}
+
+  repositories {
+  	mavenLocal()
+  	mavenCentral()
+	}
+}

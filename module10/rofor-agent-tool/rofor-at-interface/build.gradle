@@ -1,0 +1,25 @@
+buildscript {
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.9'
+    }
+}
+
+apply plugin: 'no.nils.wsdl2java'
+apply plugin: 'java'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+description = 'Rofor Agent Tool: Interface module'
+dependencies {
+    compile "org.apache.cxf:cxf-api:$cxfVersion"
+}
+
+wsdl2java{
+    wsdlsToGenerate = [
+            ["$projectDir/src/main/resources/by.rofor.service.v1.contract.wsdl"]
+    ]
+    generatedWsdlDir = file("$projectDir/generated-sources/cxf")
+    wsdlDir = file("$projectDir/src/main/resources")
+    locale = Locale.FRANCE
+}
