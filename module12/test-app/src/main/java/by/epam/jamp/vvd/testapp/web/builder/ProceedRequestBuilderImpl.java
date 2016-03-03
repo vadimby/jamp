@@ -1,5 +1,6 @@
 package by.epam.jamp.vvd.testapp.web.builder;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
 import by.epam.jamp.vvd.testapp.model.ProceedRequest;
@@ -9,13 +10,13 @@ public class ProceedRequestBuilderImpl implements ProceedRequestBuilder {
 
 	@Override
 	public ProceedRequest build(String message) {
-		if (message != null && !message.isEmpty()) {
-			ProceedRequest request = new ProceedRequest();
-			request.setMessage(message);
-			return request;
-
+		if (StringUtils.isBlank(message)) {
+			return null;
 		}
-		return null;
+
+		ProceedRequest request = new ProceedRequest();
+		request.setMessage(message);
+		return request;
 	}
 
 }

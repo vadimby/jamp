@@ -33,10 +33,12 @@ dependencies {
     }
     compile "org.springframework.boot:spring-boot-starter-jetty"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.codehaus.groovy:groovy-all:2.4.3"
+    
+    compile 'commons-lang:commons-lang:2.6'
 
-    //testCompile "junit:junit"
-	testCompile "org.testng:testng:6.8.7"
+    testCompile "junit:junit"
+	//testCompile "org.testng:testng:6.8.7"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.spockframework:spock-core"
+    testCompile "org.codehaus.groovy:groovy-all:2.4.3"
 }
