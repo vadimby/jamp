@@ -1,7 +1,5 @@
 package by.epam.jamp.vvd.testapp.web;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -13,8 +11,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import by.epam.jamp.vvd.testapp.web.HelloController;
+import by.epam.jamp.vvd.testapp.HelloController;
 
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration

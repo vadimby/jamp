@@ -1,4 +1,4 @@
-package by.epam.jamp.vvd.testapp.web;
+package by.epam.jamp.vvd.testapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,23 +9,13 @@ import by.epam.jamp.vvd.testapp.service.MainTestService;
 import by.epam.jamp.vvd.testapp.web.builder.ProceedRequestBuilder;
 
 @RestController
-public class HelloController {
+public class TestController {
 
 	@Autowired
 	private MainTestService service;
 	
 	@Autowired
 	private ProceedRequestBuilder requestBuilder;
-	
-	@RequestMapping("/")
-	public String index() {
-		return "v0.1.0";
-	}
-	
-	@RequestMapping("/echo/{message}")
-	public String echo(@PathVariable("message") String message) {
-		return message;
-	}
 
 	@RequestMapping("/process/{message}")
 	public String proceed(@PathVariable("message") String message) {

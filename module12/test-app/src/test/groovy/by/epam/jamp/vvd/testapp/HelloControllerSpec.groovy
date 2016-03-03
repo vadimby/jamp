@@ -1,4 +1,4 @@
-package by.epam.jamp.vvd.testapp.web
+package by.epam.jamp.vvd.testapp
 
 import org.springframework.boot.SpringApplication
 import org.springframework.context.ConfigurableApplicationContext
