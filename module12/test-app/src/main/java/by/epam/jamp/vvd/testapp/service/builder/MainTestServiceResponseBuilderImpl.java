@@ -1,7 +1,10 @@
 package by.epam.jamp.vvd.testapp.service.builder;
 
+import org.springframework.stereotype.Component;
+
 import by.epam.jamp.vvd.testapp.model.ProceedResponse;
 
+@Component
 public class MainTestServiceResponseBuilderImpl implements MainTestServiceResponseBuilder {
 
 	@Override
