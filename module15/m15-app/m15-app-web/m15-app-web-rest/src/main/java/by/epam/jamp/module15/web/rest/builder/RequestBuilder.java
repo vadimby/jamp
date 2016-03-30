@@ -1,5 +1,6 @@
 package by.epam.jamp.module15.web.rest.builder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import by.epam.jamp.module15.service.person.request.CreatePersonRequest;
@@ -8,10 +9,14 @@ import by.epam.jamp.module15.service.person.request.DeletePersonRequest;
 import by.epam.jamp.module15.service.person.request.GetAllPersonRequest;
 import by.epam.jamp.module15.service.person.request.GetPersonRequest;
 import by.epam.jamp.module15.service.person.request.UpdatePersonRequest;
+import by.epam.jamp.module15.web.rest.converter.PersonConverter;
 import by.epam.jamp.module15.web.rest.model.PersonDto;
 
 @Component
 public class RequestBuilder {
+	
+	@Autowired
+	private PersonConverter personConverter;
   
   public GetAllPersonRequest buildGetAllPersonsRequest() {
     return new GetAllPersonRequest();
@@ -33,10 +38,7 @@ public class RequestBuilder {
   
   public UpdatePersonRequest buildUpdatePersonRequest(PersonDto person) {
     UpdatePersonRequest request = new UpdatePersonRequest();
-    request.setId(person.getId());
-    request.setName(person.getName());
-    request.setSurname(person.getSurname());
-    request.setEmail(person.getEmail());
+    request.setPerson(personConverter.convert(person));
     return request;
   }
   

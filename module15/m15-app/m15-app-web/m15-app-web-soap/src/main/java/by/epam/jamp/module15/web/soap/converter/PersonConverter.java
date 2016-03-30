@@ -1,9 +1,9 @@
-package by.epam.jamp.module15.web.rest.converter;
+package by.epam.jamp.module15.web.soap.converter;
 
 import org.springframework.stereotype.Component;
 
 import by.epam.jamp.module15.domain.Person;
-import by.epam.jamp.module15.web.rest.model.PersonDto;
+import by.epam.jamp.module15.web.soap.types.PersonDto;
 
 @Component
 public class PersonConverter {
@@ -25,5 +25,4 @@ public class PersonConverter {
 		person.setEmail(personDto.getEmail());
 		return person;
 	}
-
 }
