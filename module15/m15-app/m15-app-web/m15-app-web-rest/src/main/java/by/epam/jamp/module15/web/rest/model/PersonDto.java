@@ -1,6 +1,6 @@
-package by.epam.jamp.module15.domain;
+package by.epam.jamp.module15.web.rest.model;
 
-public class Person {
+public class PersonDto {
 
 	private Long id;
 	private String name;

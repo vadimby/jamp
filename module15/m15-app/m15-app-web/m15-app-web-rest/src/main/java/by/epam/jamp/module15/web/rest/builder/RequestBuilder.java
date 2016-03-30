@@ -2,13 +2,13 @@ package by.epam.jamp.module15.web.rest.builder;
 
 import org.springframework.stereotype.Component;
 
-import by.epam.jamp.module15.domain.Person;
 import by.epam.jamp.module15.service.person.request.CreatePersonRequest;
 import by.epam.jamp.module15.service.person.request.DeleteAllPersonRequest;
 import by.epam.jamp.module15.service.person.request.DeletePersonRequest;
 import by.epam.jamp.module15.service.person.request.GetAllPersonRequest;
 import by.epam.jamp.module15.service.person.request.GetPersonRequest;
 import by.epam.jamp.module15.service.person.request.UpdatePersonRequest;
+import by.epam.jamp.module15.web.rest.model.PersonDto;
 
 @Component
 public class RequestBuilder {
@@ -23,7 +23,7 @@ public class RequestBuilder {
     return request;
   }
   
-  public CreatePersonRequest buildCreatePersonRequest(Person person) {
+  public CreatePersonRequest buildCreatePersonRequest(PersonDto person) {
     CreatePersonRequest request = new CreatePersonRequest();
     request.setName(person.getName());
     request.setSurname(person.getSurname());
@@ -31,7 +31,7 @@ public class RequestBuilder {
     return request;
   }
   
-  public UpdatePersonRequest buildUpdatePersonRequest(Person person) {
+  public UpdatePersonRequest buildUpdatePersonRequest(PersonDto person) {
     UpdatePersonRequest request = new UpdatePersonRequest();
     request.setId(person.getId());
     request.setName(person.getName());
@@ -40,7 +40,7 @@ public class RequestBuilder {
     return request;
   }
   
-  public DeletePersonRequest buildDeletePersonReqeust(Long personId) {
+  public DeletePersonRequest buildDeletePersonRequest(Long personId) {
     DeletePersonRequest request = new DeletePersonRequest();
     request.setPersonId(personId);
     return request;
