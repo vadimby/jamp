@@ -1,6 +1,6 @@
-package by.epam.jampmodule15.service.request;
+package by.epam.jamp.module15.service.person.request;
 
-public class GetPersonRequest {
+public class DeletePersonRequest {
   
   private Long personId;
   

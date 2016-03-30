@@ -1,8 +1,8 @@
-package by.epam.jampmodule15.service.response;
+package by.epam.jamp.module15.service.person.response;
 
-import by.epam.jampmodule15.domain.Person;
+import by.epam.jamp.module15.domain.Person;
 
-public class CreatePersonResponse {
+public class GetPersonResponse {
   
   private Person person;
   

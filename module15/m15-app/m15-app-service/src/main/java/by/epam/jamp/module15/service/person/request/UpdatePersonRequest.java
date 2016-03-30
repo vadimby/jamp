@@ -1,10 +1,11 @@
-package by.epam.jampmodule15.service.request;
+package by.epam.jamp.module15.service.person.request;
 
 public class UpdatePersonRequest {
   
   private Long id;
   private String name;
   private String surname;
+  private String email;
   
   public Long getId() {
     return id;
@@ -28,6 +29,14 @@ public class UpdatePersonRequest {
   
   public void setSurname(String surname) {
     this.surname = surname;
+  }
+  
+  public String getEmail() {
+    return email;
+  }
+  
+  public void setEmail(String email) {
+    this.email = email;
   }
   
 }

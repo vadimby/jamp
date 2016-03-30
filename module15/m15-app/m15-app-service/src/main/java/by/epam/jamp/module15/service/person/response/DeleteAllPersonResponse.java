@@ -1,4 +1,4 @@
-package by.epam.jampmodule15.service.response;
+package by.epam.jamp.module15.service.person.response;
 
 import java.util.List;
 

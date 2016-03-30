@@ -1,18 +1,10 @@
-package by.epam.jampmodule15.domain;
+package by.epam.jamp.module15.service.person.request;
 
-public class Person {
+public class CreatePersonRequest {
   
-  private Long id;
   private String name;
   private String surname;
-  
-  public Long getId() {
-    return id;
-  }
-  
-  public void setId(Long id) {
-    this.id = id;
-  }
+  private String email;
   
   public String getName() {
     return name;
@@ -28,6 +20,14 @@ public class Person {
   
   public void setSurname(String surname) {
     this.surname = surname;
+  }
+  
+  public String getEmail() {
+    return email;
+  }
+  
+  public void setEmail(String email) {
+    this.email = email;
   }
   
 }

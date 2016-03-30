@@ -20,4 +20,14 @@
 		<artifactId>m15-app</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>by.epam.jamp.module15</groupId>
+				<artifactId>m15-app-service</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
