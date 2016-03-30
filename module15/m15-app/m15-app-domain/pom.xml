@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>m15-app-service</artifactId>
+	<artifactId>m15-app-domain</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Webservices App: Service Module</name>
+	<name>Webservices App: Domain model Module</name>
 	<description>none</description>
 
 	<parent>
@@ -31,14 +31,6 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>by.epam.jamp.module15</groupId>
-			<artifactId>m15-app-domain</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
 	</dependencies>
 
 </project>
