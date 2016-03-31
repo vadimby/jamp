@@ -88,7 +88,7 @@ public class PersonEndpoint {
 		return responseConverter.convert(response);
 	}
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deletPersonSoapRequest")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deletePersonSoapRequest")
 	@ResponsePayload
 	public DeletePersonSoapResponse deletePerson(@RequestPayload DeletePersonSoapRequest soapRequest) {
 		DeletePersonRequest request = requestConverter.convert(soapRequest);
