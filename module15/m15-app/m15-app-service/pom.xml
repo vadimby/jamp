@@ -39,6 +39,10 @@
 			<artifactId>m15-app-domain</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>by.epam.jamp.module15</groupId>
+			<artifactId>m15-app-persist</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
