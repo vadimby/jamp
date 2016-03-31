@@ -9,6 +9,9 @@ import by.epam.jamp.module15.web.soap.types.PersonDto;
 public class PersonConverter {
   
   public PersonDto convert(Person person) {
+    if (person == null) {
+       return null;
+    }
     PersonDto personDto = new PersonDto();
     personDto.setId(person.getId());
     personDto.setName(person.getName());
@@ -18,6 +21,10 @@ public class PersonConverter {
   }
   
   public Person convert(PersonDto personDto) {
+    if (personDto == null) {
+      return null;
+   }
+
     Person person = new Person();
     person.setId(personDto.getId());
     person.setName(personDto.getName());

@@ -1,10 +1,13 @@
 package by.epam.jamp.module15.web.soap;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
@@ -12,11 +15,10 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
-import by.epam.jamp.module15.service.person.PersonService;
-import by.epam.jamp.module15.service.person.PersonServiceStaticImpl;
-
 @EnableWs
 @Configuration
+@EnableAutoConfiguration
+@ComponentScan(basePackages = { "by.epam.jamp.module15.service", "by.epam.jamp.module15.persist" })
 public class WebServiceConfig extends WsConfigurerAdapter {
   
   private static final String NAMESPACE_URI = "urn:by:epam:jamp:module15:web:soap:types";
@@ -44,8 +46,8 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     return new SimpleXsdSchema(new ClassPathResource("person.xsd"));
   }
   
-  @Bean
-  public PersonService getPersonService() {
-    return new PersonServiceStaticImpl();
-  }
+  // @Bean
+  // public PersonService getPersonService() {
+  // return new PersonServiceStaticImpl();
+  // }
 }
