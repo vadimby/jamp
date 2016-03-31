@@ -67,17 +67,22 @@ public class PersonServiceStaticImpl implements PersonService {
 	@Override
 	public UpdatePersonResponse update(UpdatePersonRequest request) {
 		UpdatePersonResponse response = new UpdatePersonResponse();
-		Person originalPerson = request.getPerson();
-		String email = originalPerson.getEmail();
-		if (personsEmailIndex.containsKey(email)) {
+		Person newPerson = request.getPerson();
+		String newEmail = newPerson.getEmail();
+		if (personsEmailIndex.containsKey(newEmail)) {
 			response.setStatus(ResponseStatus.CONFLICT);
-		} else if (persons.containsKey(originalPerson.getId())) {
-			Person updatedPerson = persons.get(originalPerson.getId());
-			updatedPerson.setName(originalPerson.getName());
-			updatedPerson.setSurname(originalPerson.getSurname());
-			updatedPerson.setEmail(originalPerson.getEmail());
+		} else if (persons.containsKey(newPerson.getId())) {
+			Person originalPerson = persons.get(newPerson.getId());
+			String originalEmail = originalPerson.getEmail();
+			originalPerson.setName(newPerson.getName());
+			originalPerson.setSurname(newPerson.getSurname());
+			if (!originalEmail.equals(newEmail)) {
+			  originalPerson.setEmail(newPerson.getEmail());
+			  personsEmailIndex.remove(originalEmail);
+			  personsEmailIndex.put(newEmail, newPerson);
+			}
 			response.setStatus(ResponseStatus.OK);
-			response.setPerson(updatedPerson);
+			response.setPerson(originalPerson);
 		} else {
 			response.setStatus(ResponseStatus.ERROR);
 		}
