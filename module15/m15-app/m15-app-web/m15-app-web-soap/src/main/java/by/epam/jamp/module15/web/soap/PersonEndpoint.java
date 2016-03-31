@@ -36,75 +36,75 @@ import by.epam.jamp.module15.web.soap.types.UpdatePersonSoapResponse;
 
 @Endpoint
 public class PersonEndpoint {
-
-	private static final String NAMESPACE_URI = "urn:by:epam:jamp:module15:web:soap:types";
-
-	@Autowired
-	private PersonService personService;
-
-	@Autowired
-	private RequestConverter requestConverter;
-
-	@Autowired
-	private ResponseConverter responseConverter;
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPersonSoapRequest")
-	@ResponsePayload
-	public GetPersonSoapResponse getPerson(@RequestPayload GetPersonSoapRequest soapRequest) {
-		GetPersonRequest request = requestConverter.convert(soapRequest);
-
-		GetPersonResponse response = personService.get(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getAllPersonSoapRequest")
-	@ResponsePayload
-	public GetAllPersonSoapResponse listAllPersons(@RequestPayload GetAllPersonSoapRequest soapRequest) {
-		GetAllPersonRequest request = requestConverter.convert(soapRequest);
-
-		GetAllPersonResponse response = personService.getAll(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "createPersonSoapRequest")
-	@ResponsePayload
-	public CreatePersonSoapResponse createPerson(@RequestPayload CreatePersonSoapRequest soapRequest) {
-		CreatePersonRequest request = requestConverter.convert(soapRequest);
-
-		CreatePersonResponse response = personService.create(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "updatePersonSoapRequest")
-	@ResponsePayload
-	public UpdatePersonSoapResponse updatePerson(@RequestPayload UpdatePersonSoapRequest soapRequest) {
-		UpdatePersonRequest request = requestConverter.convert(soapRequest);
-
-		UpdatePersonResponse response = personService.update(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deletePersonSoapRequest")
-	@ResponsePayload
-	public DeletePersonSoapResponse deletePerson(@RequestPayload DeletePersonSoapRequest soapRequest) {
-		DeletePersonRequest request = requestConverter.convert(soapRequest);
-
-		DeletePersonResponse response = personService.delete(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteAllPersonSoapRequest")
-	@ResponsePayload
-	public DeleteAllPersonSoapResponse deleteAllPersons(@RequestPayload DeleteAllPersonSoapRequest soapRequest) {
-		DeleteAllPersonRequest request = requestConverter.convert(soapRequest);
-
-		DeleteAllPersonResponse response = personService.deleteAll(request);
-
-		return responseConverter.convert(response);
-	}
+  
+  private static final String NAMESPACE_URI = "urn:by:epam:jamp:module15:web:soap:types";
+  
+  @Autowired
+  private PersonService personService;
+  
+  @Autowired
+  private RequestConverter requestConverter;
+  
+  @Autowired
+  private ResponseConverter responseConverter;
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPersonSoapRequest")
+  @ResponsePayload
+  public GetPersonSoapResponse getPerson(@RequestPayload GetPersonSoapRequest soapRequest) {
+    GetPersonRequest request = requestConverter.convert(soapRequest);
+    
+    GetPersonResponse response = personService.get(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getAllPersonSoapRequest")
+  @ResponsePayload
+  public GetAllPersonSoapResponse listAllPersons(@RequestPayload GetAllPersonSoapRequest soapRequest) {
+    GetAllPersonRequest request = requestConverter.convert(soapRequest);
+    
+    GetAllPersonResponse response = personService.getAll(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createPersonSoapRequest")
+  @ResponsePayload
+  public CreatePersonSoapResponse createPerson(@RequestPayload CreatePersonSoapRequest soapRequest) {
+    CreatePersonRequest request = requestConverter.convert(soapRequest);
+    
+    CreatePersonResponse response = personService.create(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updatePersonSoapRequest")
+  @ResponsePayload
+  public UpdatePersonSoapResponse updatePerson(@RequestPayload UpdatePersonSoapRequest soapRequest) {
+    UpdatePersonRequest request = requestConverter.convert(soapRequest);
+    
+    UpdatePersonResponse response = personService.update(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deletePersonSoapRequest")
+  @ResponsePayload
+  public DeletePersonSoapResponse deletePerson(@RequestPayload DeletePersonSoapRequest soapRequest) {
+    DeletePersonRequest request = requestConverter.convert(soapRequest);
+    
+    DeletePersonResponse response = personService.delete(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteAllPersonSoapRequest")
+  @ResponsePayload
+  public DeleteAllPersonSoapResponse deleteAllPersons(@RequestPayload DeleteAllPersonSoapRequest soapRequest) {
+    DeleteAllPersonRequest request = requestConverter.convert(soapRequest);
+    
+    DeleteAllPersonResponse response = personService.deleteAll(request);
+    
+    return responseConverter.convert(response);
+  }
 }

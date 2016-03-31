@@ -21,62 +21,62 @@ import by.epam.jamp.module15.web.rest.model.PersonDto;
 
 @Component
 public class ResponseConverter {
-
-	@Autowired
-	private PersonsListConverter personListConverter;
-
-	@Autowired
-	private PersonConverter personConverter;
-
-	public ResponseEntity<List<PersonDto>> convert(GetAllPersonResponse response) {
-		List<Person> persons = response.getPersons();
-		if (persons == null || persons.isEmpty()) {
-			return new ResponseEntity<List<PersonDto>>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<List<PersonDto>>(personListConverter.convert(persons), HttpStatus.OK);
-	}
-
-	public ResponseEntity<PersonDto> convert(GetPersonResponse response) {
-		Person person = response.getPerson();
-		if (person == null) {
-			return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<PersonDto>(personConverter.convert(person), HttpStatus.OK);
-	}
-
-	public ResponseEntity<Void> convert(CreatePersonResponse response) {
-		Person person = response.getPerson();
-		if (ResponseStatus.CONFLICT.equals(response.getStatus())) {
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(UriComponentsBuilder.fromPath("/person/{id}").buildAndExpand(person.getId()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-	}
-
-	public ResponseEntity<PersonDto> convert(UpdatePersonResponse response) {
-		Person person = response.getPerson();
-		if (ResponseStatus.ERROR.equals(response.getStatus())) {
-			return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
-		}
-		if (ResponseStatus.CONFLICT.equals(response.getStatus())) {
-			return new ResponseEntity<PersonDto>(HttpStatus.CONFLICT);
-		}
-		return new ResponseEntity<PersonDto>(personConverter.convert(person), HttpStatus.OK);
-
-	}
-
-	public ResponseEntity<PersonDto> convert(DeletePersonResponse response) {
-		if (ResponseStatus.ERROR.equals(response.getStatus())) {
-			return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity<PersonDto>(HttpStatus.NO_CONTENT);
-	}
-
-	public ResponseEntity<List<Long>> convert(DeleteAllPersonResponse response) {
-		return new ResponseEntity<List<Long>>(response.getRemovedIds(), HttpStatus.OK);
-	}
-
+  
+  @Autowired
+  private PersonsListConverter personListConverter;
+  
+  @Autowired
+  private PersonConverter personConverter;
+  
+  public ResponseEntity<List<PersonDto>> convert(GetAllPersonResponse response) {
+    List<Person> persons = response.getPersons();
+    if (persons == null || persons.isEmpty()) {
+      return new ResponseEntity<List<PersonDto>>(HttpStatus.NO_CONTENT);
+    }
+    return new ResponseEntity<List<PersonDto>>(personListConverter.convert(persons), HttpStatus.OK);
+  }
+  
+  public ResponseEntity<PersonDto> convert(GetPersonResponse response) {
+    Person person = response.getPerson();
+    if (person == null) {
+      return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<PersonDto>(personConverter.convert(person), HttpStatus.OK);
+  }
+  
+  public ResponseEntity<Void> convert(CreatePersonResponse response) {
+    Person person = response.getPerson();
+    if (ResponseStatus.CONFLICT.equals(response.getStatus())) {
+      return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+    }
+    
+    HttpHeaders headers = new HttpHeaders();
+    headers.setLocation(UriComponentsBuilder.fromPath("/person/{id}").buildAndExpand(person.getId()).toUri());
+    return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+  }
+  
+  public ResponseEntity<PersonDto> convert(UpdatePersonResponse response) {
+    Person person = response.getPerson();
+    if (ResponseStatus.ERROR.equals(response.getStatus())) {
+      return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
+    }
+    if (ResponseStatus.CONFLICT.equals(response.getStatus())) {
+      return new ResponseEntity<PersonDto>(HttpStatus.CONFLICT);
+    }
+    return new ResponseEntity<PersonDto>(personConverter.convert(person), HttpStatus.OK);
+    
+  }
+  
+  public ResponseEntity<PersonDto> convert(DeletePersonResponse response) {
+    if (ResponseStatus.ERROR.equals(response.getStatus())) {
+      return new ResponseEntity<PersonDto>(HttpStatus.NOT_FOUND);
+    }
+    
+    return new ResponseEntity<PersonDto>(HttpStatus.NO_CONTENT);
+  }
+  
+  public ResponseEntity<List<Long>> convert(DeleteAllPersonResponse response) {
+    return new ResponseEntity<List<Long>>(response.getRemovedIds(), HttpStatus.OK);
+  }
+  
 }

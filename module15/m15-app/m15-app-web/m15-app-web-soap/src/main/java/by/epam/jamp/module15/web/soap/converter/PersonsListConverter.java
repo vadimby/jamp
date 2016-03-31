@@ -11,16 +11,16 @@ import by.epam.jamp.module15.web.soap.types.PersonDto;
 
 @Component
 public class PersonsListConverter {
-
-	@Autowired
-	private PersonConverter personConverter;
-
-	public List<PersonDto> convert(List<Person> persons) {
-		List<PersonDto> personsDto = new ArrayList<PersonDto>();
-		for (Person person : persons) {
-			personsDto.add(personConverter.convert(person));
-		}
-		return personsDto;
-	}
-
+  
+  @Autowired
+  private PersonConverter personConverter;
+  
+  public List<PersonDto> convert(List<Person> persons) {
+    List<PersonDto> personsDto = new ArrayList<PersonDto>();
+    for (Person person : persons) {
+      personsDto.add(personConverter.convert(person));
+    }
+    return personsDto;
+  }
+  
 }

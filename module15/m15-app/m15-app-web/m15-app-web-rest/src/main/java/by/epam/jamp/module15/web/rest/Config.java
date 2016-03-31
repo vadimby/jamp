@@ -11,7 +11,7 @@ import by.epam.jamp.module15.service.person.PersonServiceStaticImpl;
 
 @Configuration
 @EnableWebMvc
-@EnableAutoConfiguration 
+@EnableAutoConfiguration
 @ComponentScan(basePackages = "by.epam.jamp.module15")
 public class Config {
   

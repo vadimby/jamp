@@ -7,23 +7,23 @@ import by.epam.jamp.module15.web.rest.model.PersonDto;
 
 @Component
 public class PersonConverter {
-
-	public PersonDto convert(Person person) {
-		PersonDto personDto = new PersonDto();
-		personDto.setId(person.getId());
-		personDto.setName(person.getName());
-		personDto.setSurname(person.getSurname());
-		personDto.setEmail(person.getEmail());
-		return personDto;
-	}
-	
-	public Person convert(PersonDto personDto) {
-		Person person = new Person();
-		person.setId(personDto.getId());
-		person.setName(personDto.getName());
-		person.setSurname(personDto.getSurname());
-		person.setEmail(personDto.getEmail());
-		return person;
-	}
-
+  
+  public PersonDto convert(Person person) {
+    PersonDto personDto = new PersonDto();
+    personDto.setId(person.getId());
+    personDto.setName(person.getName());
+    personDto.setSurname(person.getSurname());
+    personDto.setEmail(person.getEmail());
+    return personDto;
+  }
+  
+  public Person convert(PersonDto personDto) {
+    Person person = new Person();
+    person.setId(personDto.getId());
+    person.setName(personDto.getName());
+    person.setSurname(personDto.getSurname());
+    person.setEmail(personDto.getEmail());
+    return person;
+  }
+  
 }

@@ -14,9 +14,9 @@ import by.epam.jamp.module15.web.rest.model.PersonDto;
 
 @Component
 public class RequestBuilder {
-	
-	@Autowired
-	private PersonConverter personConverter;
+  
+  @Autowired
+  private PersonConverter personConverter;
   
   public GetAllPersonRequest buildGetAllPersonsRequest() {
     return new GetAllPersonRequest();

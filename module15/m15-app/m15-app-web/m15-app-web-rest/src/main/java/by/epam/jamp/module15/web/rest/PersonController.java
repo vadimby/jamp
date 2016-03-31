@@ -31,68 +31,68 @@ import by.epam.jamp.module15.web.rest.model.PersonDto;
 @RestController
 @RequestMapping(value = "/person")
 public class PersonController {
-
-	@Autowired
-	private PersonService personService;
-
-	@Autowired
-	private RequestBuilder requestBuilder;
-
-	@Autowired
-	private ResponseConverter responseConverter;
-
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<PersonDto>> listAllPersons() {
-		GetAllPersonRequest request = requestBuilder.buildGetAllPersonsRequest();
-
-		GetAllPersonResponse response = personService.getAll(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<PersonDto> getPerson(@PathVariable("id") long id) {
-		GetPersonRequest request = requestBuilder.buildGetPersonRequest(id);
-
-		GetPersonResponse response = personService.get(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> createPerson(@RequestBody PersonDto person) {
-		CreatePersonRequest request = requestBuilder.buildCreatePersonRequest(person);
-
-		CreatePersonResponse response = personService.create(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<PersonDto> updatePerson(@PathVariable("id") long id, @RequestBody PersonDto person) {
-		UpdatePersonRequest request = requestBuilder.buildUpdatePersonRequest(person);
-
-		UpdatePersonResponse response = personService.update(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<PersonDto> deletePerson(@PathVariable("id") long id) {
-		DeletePersonRequest request = requestBuilder.buildDeletePersonRequest(id);
-
-		DeletePersonResponse response = personService.delete(request);
-
-		return responseConverter.convert(response);
-	}
-
-	@RequestMapping(value = "/", method = RequestMethod.DELETE)
-	public ResponseEntity<List<Long>> deleteAllPersons() {
-		DeleteAllPersonRequest request = requestBuilder.buildDeleteAllPersonRequest();
-
-		DeleteAllPersonResponse response = personService.deleteAll(request);
-
-		return responseConverter.convert(response);
-	}
-
+  
+  @Autowired
+  private PersonService personService;
+  
+  @Autowired
+  private RequestBuilder requestBuilder;
+  
+  @Autowired
+  private ResponseConverter responseConverter;
+  
+  @RequestMapping(method = RequestMethod.GET)
+  public ResponseEntity<List<PersonDto>> listAllPersons() {
+    GetAllPersonRequest request = requestBuilder.buildGetAllPersonsRequest();
+    
+    GetAllPersonResponse response = personService.getAll(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<PersonDto> getPerson(@PathVariable("id") long id) {
+    GetPersonRequest request = requestBuilder.buildGetPersonRequest(id);
+    
+    GetPersonResponse response = personService.get(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @RequestMapping(method = RequestMethod.POST)
+  public ResponseEntity<Void> createPerson(@RequestBody PersonDto person) {
+    CreatePersonRequest request = requestBuilder.buildCreatePersonRequest(person);
+    
+    CreatePersonResponse response = personService.create(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+  public ResponseEntity<PersonDto> updatePerson(@PathVariable("id") long id, @RequestBody PersonDto person) {
+    UpdatePersonRequest request = requestBuilder.buildUpdatePersonRequest(person);
+    
+    UpdatePersonResponse response = personService.update(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  public ResponseEntity<PersonDto> deletePerson(@PathVariable("id") long id) {
+    DeletePersonRequest request = requestBuilder.buildDeletePersonRequest(id);
+    
+    DeletePersonResponse response = personService.delete(request);
+    
+    return responseConverter.convert(response);
+  }
+  
+  @RequestMapping(value = "/", method = RequestMethod.DELETE)
+  public ResponseEntity<List<Long>> deleteAllPersons() {
+    DeleteAllPersonRequest request = requestBuilder.buildDeleteAllPersonRequest();
+    
+    DeleteAllPersonResponse response = personService.deleteAll(request);
+    
+    return responseConverter.convert(response);
+  }
+  
 }

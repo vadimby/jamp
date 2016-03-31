@@ -16,15 +16,15 @@ import by.epam.jamp.module15.service.person.response.UpdatePersonResponse;
 public interface PersonService {
   
   CreatePersonResponse create(CreatePersonRequest request);
-
+  
   GetPersonResponse get(GetPersonRequest request);
-
+  
   GetAllPersonResponse getAll(GetAllPersonRequest request);
-
+  
   UpdatePersonResponse update(UpdatePersonRequest request);
-
+  
   DeletePersonResponse delete(DeletePersonRequest request);
-
+  
   DeleteAllPersonResponse deleteAll(DeleteAllPersonRequest request);
-
+  
 }
