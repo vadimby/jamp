@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>by.epam.jamp.module15.web</groupId>
+	<artifactId>m15-app-web</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Webservices App: Web module</name>
+	<description>none</description>
+
+	<modules>
+		<module>m15-app-web-rest</module>
+		<module>m15-app-web-soap</module>
+	</modules>
+
+	<parent>
+		<groupId>by.epam.jamp.module15</groupId>
+		<artifactId>m15-app</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>by.epam.jamp.module15</groupId>
+				<artifactId>m15-app-service</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
