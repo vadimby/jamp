@@ -9,10 +9,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import by.epam.jamp.module15.service.person.PersonService;
 import by.epam.jamp.module15.service.person.PersonServiceStaticImpl;
 
-@Configuration
-@EnableWebMvc
-@EnableAutoConfiguration
-@ComponentScan(basePackages = "by.epam.jamp.module15")
+//@Configuration
+//@EnableWebMvc
+//@EnableAutoConfiguration
+//@ComponentScan(basePackages = "by.epam.jamp.module15")
 public class Config {
   
   @Bean

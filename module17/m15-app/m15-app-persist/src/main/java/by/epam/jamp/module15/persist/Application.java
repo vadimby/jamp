@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import by.epam.jamp.module15.persist.model.PersonTable;
 import by.epam.jamp.module15.persist.repositories.PersonRepository;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class Application {
   
   private static final Logger log = LoggerFactory.getLogger(Application.class);
