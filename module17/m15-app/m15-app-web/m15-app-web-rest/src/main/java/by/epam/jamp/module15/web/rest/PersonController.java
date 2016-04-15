@@ -32,13 +32,10 @@ import by.epam.jamp.module15.web.rest.model.PersonDto;
 @RequestMapping(value = "/person")
 public class PersonController {
   
-  @Autowired
   private PersonService personService;
   
-  @Autowired
   private RequestBuilder requestBuilder;
   
-  @Autowired
   private ResponseConverter responseConverter;
   
   @RequestMapping(method = RequestMethod.GET)

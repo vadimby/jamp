@@ -9,10 +9,8 @@ import org.springframework.stereotype.Component;
 import by.epam.jamp.module15.domain.Person;
 import by.epam.jamp.module15.persist.model.PersonTable;
 
-@Component
 public class DaoPersonsListConverter {
   
-  @Autowired
   private DaoPersonConverter personConverter;
   
   public List<Person> convert(List<PersonTable> responseBody) {

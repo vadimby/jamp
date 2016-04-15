@@ -21,13 +21,10 @@ import by.epam.jamp.module15.persist.service.response.GetAllPersonDaoResponse;
 import by.epam.jamp.module15.persist.service.response.GetPersonDaoResponse;
 import by.epam.jamp.module15.persist.service.response.UpdatePersonDaoResponse;
 
-@Service
 public class PersonDaoServiceImpl implements PersonDaoService {
   
-  @Autowired
   private PersonRepository repository;
   
-  @Autowired
   private ResponseBuilder responseBuilder;
   
   @Override

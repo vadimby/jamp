@@ -16,16 +16,12 @@ import by.epam.jamp.module15.service.person.response.GetAllPersonResponse;
 import by.epam.jamp.module15.service.person.response.GetPersonResponse;
 import by.epam.jamp.module15.service.person.response.UpdatePersonResponse;
 
-@Component
 public class DaoPersonResponseConverter {
   
-  @Autowired
   private DaoPersonConverter personConverter;
   
-  @Autowired
   private DaoPersonsListConverter personsListConverter;
   
-  @Autowired
   private DaoStatusConverter statusConverter;
   
   public CreatePersonResponse convert(CreatePersonDaoResponse daoResponse) {

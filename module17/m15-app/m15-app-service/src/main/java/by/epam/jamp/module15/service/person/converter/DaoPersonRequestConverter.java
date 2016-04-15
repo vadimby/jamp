@@ -16,10 +16,8 @@ import by.epam.jamp.module15.service.person.request.GetAllPersonRequest;
 import by.epam.jamp.module15.service.person.request.GetPersonRequest;
 import by.epam.jamp.module15.service.person.request.UpdatePersonRequest;
 
-@Component
 public class DaoPersonRequestConverter {
   
-  @Autowired
   private DaoPersonConverter personConverter;
   
   public CreatePersonDaoRequest convert(CreatePersonRequest request) {

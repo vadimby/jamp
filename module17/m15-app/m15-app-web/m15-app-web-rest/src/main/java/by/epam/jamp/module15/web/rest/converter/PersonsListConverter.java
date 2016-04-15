@@ -9,10 +9,8 @@ import org.springframework.stereotype.Component;
 import by.epam.jamp.module15.domain.Person;
 import by.epam.jamp.module15.web.rest.model.PersonDto;
 
-@Component
 public class PersonsListConverter {
-  
-  @Autowired
+
   private PersonConverter personConverter;
   
   public List<PersonDto> convert(List<Person> persons) {

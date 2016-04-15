@@ -19,13 +19,10 @@ import by.epam.jamp.module15.service.person.response.UpdatePersonResponse;
 import by.epam.jamp.module15.service.response.ResponseStatus;
 import by.epam.jamp.module15.web.rest.model.PersonDto;
 
-@Component
 public class ResponseConverter {
   
-  @Autowired
   private PersonsListConverter personListConverter;
   
-  @Autowired
   private PersonConverter personConverter;
   
   public ResponseEntity<List<PersonDto>> convert(GetAllPersonResponse response) {

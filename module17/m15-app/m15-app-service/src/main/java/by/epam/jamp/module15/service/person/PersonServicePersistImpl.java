@@ -19,16 +19,12 @@ import by.epam.jamp.module15.service.person.response.GetAllPersonResponse;
 import by.epam.jamp.module15.service.person.response.GetPersonResponse;
 import by.epam.jamp.module15.service.person.response.UpdatePersonResponse;
 
-@Service
 public class PersonServicePersistImpl implements PersonService {
 
-  @Autowired
   private PersonDaoService personDaoService;
   
-  @Autowired
   private DaoPersonRequestConverter requestConverter;
   
-  @Autowired
   private DaoPersonResponseConverter responseConverter;  
   
   @Override

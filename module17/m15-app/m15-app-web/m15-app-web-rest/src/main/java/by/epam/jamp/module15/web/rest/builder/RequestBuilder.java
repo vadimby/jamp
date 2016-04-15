@@ -12,10 +12,8 @@ import by.epam.jamp.module15.service.person.request.UpdatePersonRequest;
 import by.epam.jamp.module15.web.rest.converter.PersonConverter;
 import by.epam.jamp.module15.web.rest.model.PersonDto;
 
-@Component
 public class RequestBuilder {
   
-  @Autowired
   private PersonConverter personConverter;
   
   public GetAllPersonRequest buildGetAllPersonsRequest() {
