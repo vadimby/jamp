@@ -1,8 +1,5 @@
 package by.epam.jamp.module15.service.person.converter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import by.epam.jamp.module15.persist.service.request.CreatePersonDaoRequest;
 import by.epam.jamp.module15.persist.service.request.DeleteAllPersonDaoRequest;
 import by.epam.jamp.module15.persist.service.request.DeletePersonDaoRequest;

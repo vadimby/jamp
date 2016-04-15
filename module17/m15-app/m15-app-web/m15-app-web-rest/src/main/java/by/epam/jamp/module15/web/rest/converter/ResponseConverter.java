@@ -2,11 +2,9 @@ package by.epam.jamp.module15.web.rest.converter;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import by.epam.jamp.module15.domain.Person;
@@ -75,5 +73,14 @@ public class ResponseConverter {
   public ResponseEntity<List<Long>> convert(DeleteAllPersonResponse response) {
     return new ResponseEntity<List<Long>>(response.getRemovedIds(), HttpStatus.OK);
   }
+
+  public void setPersonListConverter(PersonsListConverter personListConverter) {
+    this.personListConverter = personListConverter;
+  }
+
+  public void setPersonConverter(PersonConverter personConverter) {
+    this.personConverter = personConverter;
+  }
+  
   
 }

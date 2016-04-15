@@ -2,9 +2,6 @@ package by.epam.jamp.module15.persist.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import by.epam.jamp.module15.persist.builder.ResponseBuilder;
 import by.epam.jamp.module15.persist.model.PersonTable;
 import by.epam.jamp.module15.persist.repositories.PersonRepository;

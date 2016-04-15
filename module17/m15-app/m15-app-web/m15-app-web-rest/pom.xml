@@ -56,6 +56,12 @@
 		<dependency>
 			<groupId>by.epam.jamp.module15</groupId>
 			<artifactId>m15-app-service</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>by.epam.jamp.module15</groupId>
+					<artifactId>m15-app-persist</artifactId>					
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>

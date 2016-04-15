@@ -2,7 +2,6 @@ package by.epam.jamp.module15.web.rest;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,6 +89,18 @@ public class PersonController {
     DeleteAllPersonResponse response = personService.deleteAll(request);
     
     return responseConverter.convert(response);
+  }
+  
+  public void setPersonService(PersonService personService) {
+    this.personService = personService;
+  }
+  
+  public void setRequestBuilder(RequestBuilder requestBuilder) {
+    this.requestBuilder = requestBuilder;
+  }
+  
+  public void setResponseConverter(ResponseConverter responseConverter) {
+    this.responseConverter = responseConverter;
   }
   
 }

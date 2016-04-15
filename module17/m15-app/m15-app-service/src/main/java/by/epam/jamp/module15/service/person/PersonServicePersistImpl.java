@@ -1,8 +1,5 @@
 package by.epam.jamp.module15.service.person;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import by.epam.jamp.module15.persist.service.PersonDaoService;
 import by.epam.jamp.module15.service.person.converter.DaoPersonRequestConverter;
 import by.epam.jamp.module15.service.person.converter.DaoPersonResponseConverter;

@@ -1,6 +1,6 @@
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -10,13 +10,35 @@
         http://www.springframework.org/schema/data/jpa
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<context:component-scan base-package="by.epam.jamp.module15.web.rest, by.epam.jamp.module15.persist.model" />
+	<context:component-scan
+		base-package="by.epam.jamp.module15.web.rest, by.epam.jamp.module15.persist.model" />
 	<mvc:annotation-driven />
-	<jpa:repositories base-package="by.epam.jamp.module15.persist.repositories"
-		entity-manager-factory-ref="entityManagerFactory">
-	</jpa:repositories>
 
-	<bean id="personService" class="by.epam.jamp.module15.service.person.PersonServicePersistImpl" />
+	<bean id="personService"
+		class="by.epam.jamp.module15.service.person.PersonServiceStaticImpl" />
 
-	<bean id="personDaoService" class="by.epam.jamp.module15.persist.service.PersonDaoServiceImpl" />
+	<bean id="personController" class="by.epam.jamp.module15.web.rest.PersonController">
+		<property name="personService" ref="personService"></property>
+		<property name="requestBuilder" ref="requestBuilder"></property>
+		<property name="responseConverter" ref="responseConverter"></property>
+	</bean>
+
+	<bean id="responseConverter"
+		class="by.epam.jamp.module15.web.rest.converter.ResponseConverter">
+		<property name="personListConverter" ref="personsListConverter"></property>
+		<property name="personConverter" ref="personConverter"></property>
+	</bean>
+
+	<bean id="requestBuilder" class="by.epam.jamp.module15.web.rest.builder.RequestBuilder">
+		<property name="personConverter" ref="personConverter"></property>
+	</bean>
+
+	<bean id="personConverter"
+		class="by.epam.jamp.module15.web.rest.converter.PersonConverter">
+	</bean>
+
+	<bean id="personsListConverter"
+		class="by.epam.jamp.module15.web.rest.converter.PersonsListConverter">
+		<property name="personConverter" ref="personConverter"></property>
+	</bean>
 </beans>

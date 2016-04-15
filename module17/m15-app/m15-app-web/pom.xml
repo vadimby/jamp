@@ -12,7 +12,6 @@
 
 	<modules>
 		<module>m15-app-web-rest</module>
-		<module>m15-app-web-soap</module>
 	</modules>
 
 	<parent>

@@ -1,8 +1,5 @@
 package by.epam.jamp.module15.web.rest.builder;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import by.epam.jamp.module15.service.person.request.CreatePersonRequest;
 import by.epam.jamp.module15.service.person.request.DeleteAllPersonRequest;
 import by.epam.jamp.module15.service.person.request.DeletePersonRequest;
@@ -50,4 +47,9 @@ public class RequestBuilder {
     DeleteAllPersonRequest request = new DeleteAllPersonRequest();
     return request;
   }
+  
+  public void setPersonConverter(PersonConverter personConverter) {
+    this.personConverter = personConverter;
+  }
+  
 }
